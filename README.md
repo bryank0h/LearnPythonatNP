@@ -1,4 +1,4 @@
-# ID Assignment 2 ------ Learn Python at Ngee Ann Polytechnic
+# ID Assignment 2 — Learn Python at Ngee Ann Polytechnic
 **Team Members: Bryan Koh, Nicholas Lee**
 
 For this assignment, we will be working on a website which educates and teaches students in Ngee Ann Polytechnic about the fundamentals/basics of Python. Our goal is set out to enhance and gamify the experience of learning the Python language, while being able to hone their skills via our web application. Our target audience would be to benefit students of Information Technology, or any related courses that will make use of the language. 
