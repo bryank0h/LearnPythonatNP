@@ -9,6 +9,8 @@ In Speed Training Mode, it is assumed that Students have already aquired the bas
 
 A certificate will be presented upon completion of Tutorial Mode or Speed Training Mode.
 
+After completing a challenge in Speed Training Mode, users can view the leaderboard and see who are in the leading positions.
+
 ## Features
 
 - **Feature 1**: Randomized profile picture for each user.
