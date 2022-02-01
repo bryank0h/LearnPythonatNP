@@ -78,6 +78,7 @@ html {
     text-align: center;
     padding: 10px 100px;
     margin: 0px 15px;
+    border-radius: 2px;
     background-color: rgba(255, 255, 255);
     cursor: pointer;
     transition: .2s ease-in;
@@ -90,18 +91,22 @@ html {
 }
 
 .Index > body > #Login-form > form > .Input-box {
+    display: flex;
     margin-bottom: 4px;
     font-size: 110%;
+    justify-content: right;
 }
 
 .Index > body > #Login-form > form > .Input-box input {
     width: 300px;
     font-size: 20px;
+    margin-left: 20px;
     outline-color: rgb(0, 57, 230);
 }
 
 .Index > body > #Login-form > form > #submit {
-    margin-left: 140px;
+    margin: 20px 0px;
+    margin-left: 164px;
     border: 2px solid rgb(255, 217, 0);
     background-color: rgb(69, 69, 69);
     color: white;
@@ -117,10 +122,38 @@ html {
     transition: .165s ease-in; 
 }
 
-.Index > body > p {
-    color: white;
-    text-align: center;
+.Index > body > #Create-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 65px;
+}
+
+.Index > body > #Create-account p {
+    color: white;
+    margin: 0px 10px;
+    margin-bottom: 30px;
+    font-size: 115%;
+    text-align: center;
+}
+
+.Index > body > #Create-account a {
+    background-color: rgb(69, 69, 69);
+    border: 2px solid rgb(0, 149, 255);
+    border-radius: 10px;
+    color: white;
+    padding: 10px 60px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: .2s ease-in;
+}
+
+.Index > body > #Create-account a:hover {
+    transform: scale(1.15);
+    color: rgb(255, 217, 0);
+    background-color: rgb(0, 149, 255);
+    border-color: rgb(255, 255, 255);
+    transition: .165s ease-in; 
 }
 
 @media only screen and (max-width: 1300px) {
@@ -133,7 +166,7 @@ html {
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 970px) {
     .Index {
         background: url("../Images/Backgrounds/pythonbluebg3.png");
         background-position-y: center;
@@ -149,3 +182,32 @@ html {
         width: 245px;
     }
 }
+
+@media only screen and (max-width: 470px) {
+    .Index {
+        background: url("../Images/Backgrounds/pythonbluebg4.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;       
+    }
+}
+
+@media only screen and (max-width: 444px) {
+    .Index > body > #Login-form h2 {
+        padding: 10px 10px;
+    }
+    .Index > body > #Login-form > form > .Input-box {
+        flex-direction: column;
+    }
+    .Index > body > #Login-form > form > .Input-box label {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+    .Index > body > #Login-form > form > #submit {
+        margin-left: 20px;
+        width: 75%;
+    }
+}
+
+

@@ -5,12 +5,13 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Libraries/normalize.css">
         <link rel="stylesheet" href="CSS/style.css">
     </head>   
     <body>
         <header id="Title">
             <figure>
-                <a href="https://www.np.edu.sg/Pages/default.aspx"><img src="Images/School Logo/NP.png" alt="NP website" title="Go to Ngee Ann Polytechnic's website"></a>
+                <a href="https://www.np.edu.sg/Pages/default.aspx" target="_blank"><img src="Images/School Logo/NP.png" alt="NP website" title="Go to Ngee Ann Polytechnic's website"></a>
             </figure>            
             <h1>Welcome to Learning Python at Ngee Ann Polytechnic</h1>
             <div></div>          
@@ -19,7 +20,7 @@
             <h2>Login to Get Started!</h2>
             <form id="Login" action="" method="post" style="display: none;">
                 <div class="Input-box">
-                    <label for="email">&nbsp&nbsp&nbspEmail:</label>
+                    <label id="email-label" for="email">Email:</label>
                     <input type="email" id="email" name="email" required />
                 </div>
                 <br><br>
@@ -32,9 +33,12 @@
             </form>
             <br>           
         </section>
-        <p>Don't have an account yet? Click here to create one!</p>
+        <section id="Create-account">
+            <p>Don't have an account yet? Create one today!</p>
+            <a href="create-account.html">Create an Account</a>
+        </section>
 
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="Javascript/main.js" defer></script>
+        <script src="Javascript/index.js" defer></script>
     </body>
 </html>
