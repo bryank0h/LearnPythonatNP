@@ -95,13 +95,16 @@ html {
     margin-bottom: 4px;
     font-size: 110%;
     justify-content: right;
+    align-items: center;
 }
 
 .Index > body > #Login-form > form > .Input-box input {
     width: 300px;
     font-size: 20px;
     margin-left: 20px;
+    border: 1px solid black;
     outline-color: rgb(0, 57, 230);
+    background-color: rgba(255,255,255,0.4);
 }
 
 .Index > body > #Login-form > form > #submit {
@@ -207,6 +210,46 @@ html {
     .Index > body > #Login-form > form > #submit {
         margin-left: 20px;
         width: 75%;
+    }
+}
+
+/* Styling for create-account.html */
+.Create-account {
+    background: url("../Images/Backgrounds/pythonbluebg.png");
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+}
+
+@media only screen and (max-width: 1300px) {
+    .Create-account {
+        background: url("../Images/Backgrounds/pythonbluebg2.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .Create-account {
+        background: url("../Images/Backgrounds/pythonbluebg3.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;       
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .Create-account {
+        background: url("../Images/Backgrounds/pythonbluebg4.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;       
     }
 }
 
