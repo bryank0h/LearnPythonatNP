@@ -67,7 +67,7 @@ html {
     margin: 0px 30px;
     margin-bottom: 60px;
     padding: 40px 100px;
-    padding-bottom: 100px;
+    padding-bottom: 25px;
     background-color: rgba(255, 255, 255, 0.35);
     color: black;
     border-radius: 20px;
@@ -78,8 +78,15 @@ html {
     text-align: center;
     padding: 10px 100px;
     margin: 0px 15px;
-    margin-bottom: 60px;
     background-color: rgba(255, 255, 255);
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.Index > body > #Login-form h2:hover {   
+    transform: scale(1.05);
+    border-color: rgb(53, 121, 255);
+    transition: .2s ease-in;  
 }
 
 .Index > body > #Login-form > form > .Input-box {
@@ -87,13 +94,27 @@ html {
     font-size: 110%;
 }
 
-.Index > body > #Login-form > form > .Input-box input{
+.Index > body > #Login-form > form > .Input-box input {
     width: 300px;
     font-size: 20px;
+    outline-color: rgb(0, 57, 230);
 }
 
 .Index > body > #Login-form > form > #submit {
-    margin-left: 164px;  
+    margin-left: 140px;
+    border: 2px solid rgb(255, 217, 0);
+    background-color: rgb(69, 69, 69);
+    color: white;
+    padding: 10px 60px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.Index > body > #Login-form > form > #submit:hover {
+    transform: scale(1.15);
+    border-color: rgb(255, 255, 255);
+    transition: .165s ease-in; 
 }
 
 .Index > body > p {
@@ -127,10 +148,4 @@ html {
     .Index > body >  #Login-form > form > .Input-box input{
         width: 245px;
     }
-}
-
-@media only screen and (max-width: 600px) {
-    
-
-
 }
