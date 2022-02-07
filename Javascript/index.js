@@ -61,6 +61,7 @@ $(document).ready(function() {
                         successflag = true;
                         object = response[i];
                         localStorage.setItem('user1', JSON.stringify(object));
+                        window.location.assign("main-menu.html");
                         break;
                     }
                 }

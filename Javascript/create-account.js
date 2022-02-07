@@ -17,21 +17,33 @@ $(document).ready(function () {
         if (($("#password").val()).length != 0) {
             if ($("#re-password").val() != $("#password").val()) {
                 $("#Password-error").show();
-                $("#submit").prop('disabled', true)
+                $("#submit").prop('disabled', true);
             }
             else {
                 $("#Password-error").hide();
-                $("#submit").prop('disabled', false)
+                $("#submit").prop('disabled', false);
             }
         }
     })
     $("#password").focusout(function (e) {
         $("#Password-error").hide();
+        $("#submit").prop('disabled', false);
+    })
+
+    $("#username").focusout(function (e) {
+        if (($("#username").val()).length > 8 || ($("#username").val()).length < 8) {
+            $("#Username-long").show();
+            $("#submit").prop('disabled', true);
+        }
+        else {
+            $("#submit").prop('disabled', false);
+        }
     })
 
     $("input").focus(function (e) {
         $("#Email-error").hide();
         $("#Username-error").hide();
+        $("#Username-long").hide();
     })
 
     $("input").focus(function() {
@@ -87,7 +99,8 @@ $(document).ready(function () {
         let jsondata = {
             "username": username,
             "email": email,
-            "password": password
+            "password": password,
+            "profilepicture": '0'
         };
         let settings = {
             "async": true,
@@ -114,7 +127,8 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
             console.log(response);
             localStorage.setItem('user1', JSON.stringify(response));
-            $("lottie-player").hide();            
+            $("lottie-player").hide(); 
+            window.location.assign("main-menu.html");           
         })
     }
 })

@@ -1,5 +1,5 @@
 html {
-    font-family: monospace;
+    font-family: sans-serif;
     color: white;
 }
 
@@ -387,8 +387,7 @@ html {
 @media only screen and (max-width: 530px) {
     .Create-account > body > a {
         top: 780px;
-        left: 250px;
-        
+        left: 250px;     
     }
 }
 
@@ -402,4 +401,190 @@ html {
     }
 }
 
+/* Styling for main-menu.html */
 
+.Main-Menu {
+    background: url("../Images/Backgrounds/pythonnormal.png");
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.Main-Menu > body > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+
+.Main-Menu > body > header #Greeting-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.Main-Menu > body > header #Greeting-left h1 {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 120px;
+}
+
+.Main-Menu > body > header #Greeting-left h1 span img {
+    height: 80px;
+    width: 80px;
+    border: 1px solid black;
+    border-radius: 100%;
+    position: relative;
+    top: 20px;
+}
+
+.Main-Menu > body > header #Greeting-left h2 {
+    position: relative;
+    bottom: 90px;
+    margin-bottom: 10px;
+    transition: .1s ease-in;
+}
+
+.Main-Menu > body > header #Greeting-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.Main-Menu > body > header #Greeting-right button{
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.Main-Menu > body > header #Greeting-right #change-picture {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 20px;
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border-radius: 3px;
+    position: relative;
+    left: 5px;
+    transition: .1s ease-in;
+}
+
+.Main-Menu > body > header #Greeting-right #change-picture:hover {
+    background-color: rgba(69, 69, 69, 0.517);
+    color: rgba(255, 255, 255);
+    cursor: pointer;
+}
+
+.Main-Menu > body > #Menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.443);
+    position: relative;
+    bottom: 100px;
+}
+
+.Main-Menu > body > #Menu > .Menu-option {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0px;
+    transition: .2s ease-in;
+}
+
+.Main-Menu > body > #Menu > .Menu-option:hover {
+    transform: scale(1.1);
+    transition: .2s ease-in;
+    transition-delay: 0.15s;
+}
+
+.Main-Menu > body > #Menu > .Menu-option a {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgb(255, 217, 0);
+    border: 2px solid white;
+    border-radius: 2px;
+    width: 230px;
+    white-space: nowrap;
+    text-decoration: none;
+    margin: 50px 40px;
+    transition: .165s ease-in;
+}
+
+.Main-Menu > body > #Menu > .Menu-option a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 149, 255);
+    border-color: black;
+    transition: .1s ease-in;
+}
+
+.Main-Menu > body > #Menu > .Menu-option p {
+    font-size: 14px;
+    line-height: 22px;
+    color: black;
+}
+
+.Main-Menu > body > #Menu > #Tutorial {
+    position: relative;
+    left: 13px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .Main-Menu {
+        background: url("../Images/Backgrounds/pythonnormal2.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .Main-Menu {
+        background: url("../Images/Backgrounds/pythonnormal3.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;       
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .Main-Menu > body > header {
+        margin-top: 40px;
+    }
+    .Main-Menu > body > #Menu > .Menu-option {
+        flex-direction: column;
+        margin-bottom: 3px;
+    }
+    .Main-Menu > body > #Menu > .Menu-option p {
+        position: relative;
+        bottom: 30px;
+    }
+    .Main-Menu > body > #Menu > #Tutorial {
+        left: 0px;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .Main-Menu {
+        background: url("../Images/Backgrounds/pythonnormal4.png");
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;       
+    }
+    .Main-Menu > body > header > #Greeting-left h1 {
+        margin-bottom: 130px;
+    }
+
+    .Main-Menu > body > header > #Greeting-right {
+        position: relative;
+        left: 20px;
+    }
+}

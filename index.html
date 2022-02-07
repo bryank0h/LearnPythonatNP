@@ -2,13 +2,26 @@
 <html class="Index">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>LearnPythonAtNP</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
         <link rel="stylesheet" href="CSS/style.css">
     </head>   
     <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            if (localStorage.getItem('user1') != null) {
+                Swal.fire(
+                    'Logged in!',
+                    'You are already logged in :)',
+                    'success'
+                    ).then(function () {
+                        window.location.assign("main-menu.html");
+                    }) 
+            }
+        </script>
         <header id="Title">
             <figure>
                 <a href="https://www.np.edu.sg/Pages/default.aspx" target="_blank"><img src="Images/School Logo/NP.png" alt="NP website" title="Go to Ngee Ann Polytechnic's website"></a>
@@ -39,7 +52,6 @@
             <a href="create-account.html">Create an Account</a>
         </section>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="Javascript/index.js" defer></script>
     </body>
 </html>

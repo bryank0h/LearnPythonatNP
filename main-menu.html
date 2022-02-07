@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="Main-Menu">
+    <head>
+        <meta charset="utf-8">
+        <title>Main Menu</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Libraries/normalize.css">
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>   
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            if (localStorage.getItem('user1') == null) {
+            Swal.fire(
+                'Sorry',
+                'It appears that you are not logged in.',
+                'error'
+            ).then(function () {
+                window.location.replace("index.html");
+            })  
+        };
+        </script>
+        <header id="Greeting">
+            <section id="Greeting-left">
+                <h1>Hello, <span id="username"></span>! <span><img id="profile-picture" src="Images/Profile/pythonnull.png"></img></span></h1>
+                <h2>Select one of these options to begin.</h2>
+            </section>
+            <section id="Greeting-right">
+                <button onclick="logout()">Logout</button>
+                <br>
+                <span id="change-picture">Change profile picture</span>
+            </section>
+        </header>  
+        <section id="Menu">
+            <section id="Tutorial" class="Menu-option">
+                <a href=""><b>Tutorial</b></a>
+                <p><b>This tutorial mode goes through each basic coding<br>
+                    concept of Python step by step, with hands-on,<br>
+                    very simple coding exercise in each step.</b>
+                </p>
+            </section>
+            <section class="Menu-option">
+                <a href=""><b>Speed Training</b></a>
+                <p><b>With the basic skills in mind, put your minds to<br>
+                    the test and see how fast you are able<br>
+                    to complete the quizzes,<br>
+                    ranging from MCQs to simple short questions.</b>
+                </p>
+            </section>
+        </section>
+        <script>
+            function logout() {
+                localStorage.removeItem('user1');
+                Swal.fire(
+                'Goodbye!',
+                'You have been logged out.',
+                'success'
+                ).then(function () {
+                    window.location.replace("index.html");
+                }) 
+            }
+        </script>
+        <script src="Javascript/main-menu.js" async></script>
+    </body>
+</html>
