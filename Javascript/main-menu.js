@@ -6,7 +6,6 @@ $(document).ready(function () {
         $("#profile-picture").attr('src', userinfo.profilepicture);
     }
 
-
     $("#change-picture").click(function (e) {
         e.preventDefault(); 
         let url = "https://api.unsplash.com/search/photos?query=food&orientation=squarish&client_id=OYSECy1VZgmHT8HWdZaWG3h_SMafMtVndRzTn6x9djg";
@@ -91,7 +90,11 @@ $(document).ready(function () {
                     window.location.replace("main-menu.html");
                 })
             } else if (answer.dismiss === Swal.DismissReason.cancel) {
-                number += 1;
+                if (number === 9) {
+                    number = 0;
+                } else {
+                    number += 1;
+                }
                 PhotoChange(photos, number);
             }
         })
