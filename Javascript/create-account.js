@@ -30,20 +30,9 @@ $(document).ready(function () {
         $("#submit").prop('disabled', false);
     })
 
-    $("#username").focusout(function (e) {
-        if (($("#username").val()).length > 8 || ($("#username").val()).length < 8) {
-            $("#Username-long").show();
-            $("#submit").prop('disabled', true);
-        }
-        else {
-            $("#submit").prop('disabled', false);
-        }
-    })
-
     $("input").focus(function (e) {
         $("#Email-error").hide();
         $("#Username-error").hide();
-        $("#Username-long").hide();
     })
 
     $("input").focus(function() {

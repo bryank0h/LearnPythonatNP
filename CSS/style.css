@@ -329,7 +329,6 @@ html {
     bottom: 20px;
 }
 
-
 .Create-account > body > #More-spacing {
     height: 100px;
     display: none;
@@ -378,7 +377,6 @@ html {
         left: 115px;
         width: 200px;
     }
-
     .Create-account > body > #More-spacing {
         display: block;
     } 
@@ -386,8 +384,8 @@ html {
 
 @media only screen and (max-width: 530px) {
     .Create-account > body > a {
-        top: 780px;
-        left: 250px;     
+        top: 800px;
+        left: 248px;     
     }
 }
 
