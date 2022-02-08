@@ -22,7 +22,227 @@
             })  
         };
         </script>
+        <button onclick="back()">Return to Main Menu</button>
+        <script>
+            function back() {
+                window.location.assign("main-menu.html");
+            }
+        </script>
+        <header>
+            <h1>Tutorial Mode</h1>
+            <h2>Select a topic from below:</h2>
+            <nav>
+                <div class="column">
+                    <ol id="lesson1">
+                        <h3>Chapter 1 : The Beginning!</h3>
+                        <li>Variables/Identifiers & Comments</li>
+                        <li>Values & Data Types</li>
+                        <li>Print and Input</li>
+                    </ol>
+                    <ol id="lesson2_1">
+                        <h3>Chapter 2.1 : Operators & Interactivity</h3>
+                        <li>4 Operators</li>
+                        <li>Import Math</li>
+                    </ol>
+                    <ol id="lesson2_2">
+                        <h3>Chapter 2.2 : Functions</h3>
+                    </ol>
+                    <ol id="lesson2_3">
+                        <h3>Chapter 2.3 : String Formatting</h3>
+                    </ol>
+                </div>              
+            </nav>
+            <p>Completed chapters will be marked green.</p>       
+        </header>
+        <section id="chapter1" class="content" style="display: none;">
+            <br>
+            <button class="return">Return to Topic Selection</button><br><br>
+            <h2 class="heading">Chapter 1 : The Beginning!</h2>
+            <p>First of all, a warm welcome to Python programming! Python is a general purpose and high level programming language with a comprehensive set of libraries.<br>
+                You can use Python for developing desktop Graphical User Interface (GUI) applications, websites and web applications. Developed in early 1990s by Guido van Rossum, Python allows you to focus on core functionality of the application by taking care of common programming tasks. The simple syntax rules of the programming language further makes it easier for you to keep the code base readable and application maintainable.</p>
+            <ul>
+                <h3>Characteristics:</h3>
+                <li>Easy to read and learn</li>
+                <li>Clean look with few unnecessary symbols</li>
+                <li>Easy to keep up to date</li>
+            </ul>
+            <h3>Shortcuts in IDLE</h3>
+            <br>
+            <img id="chapter1-shortcuts" src="Images/Tutorial/chapter1/shortcuts.png">
+            <p>While programming, it is important to take note of the syntax (or rules) as well as the program structure (or the format) so that errors can be avoided.<br><br>
+                In computer science, the syntax of a computer language is the set of rules that defines the combinations of symbols that are considered to be a correctly structured document or fragment in that language. The syntax of the Python programming language is the set of rules which defines how a Python program will be written.<br><br>
+                Languages have formats to follow, e.g. formats for writing letters, writing memos, reports, etc.<br>
+                Programming languages also have its own format or program structure to follow when writing a program. This differ depending on the programming language used.
+            </p>
+            <h2>Components in Python</h2>
+            <h3><b>Identifiers</b></h3>
+            <p>Identifers are names defined by the programmer.</p>
+            <ul>
+                <h4>A few rules to tale note while defining identifiers include:</h4>
+                <li>They are <b>Case Sensitive</b></li>
+                <li>They begin with <b>lowercase letter</b></li>
+                <li>They <b>cannot begin with a digit</b></li>
+                <li>They contain only letters, digits or underscore</li>
+                <li><b>Identifiers should have meaningful names</b></li>
+            </ul>
+            <br>
+            <img id="chapter1-identifier" src="Images/Tutorial/chapter1/identifier.png">
+            <h4>Reserved Keywords</h4>
+            <p>It is important to take note that there are some special words that are not allowed for use as identifiers. These are known as <b>Keywords</b>. These keywords are reserved by Python for special use.</p>
+            <img id="chapter1-keywords" src="Images/Tutorial/chapter1/reserved.png">
+            <h3><b>Statements and Comments</b></h3>
+            <p>Statements in Python are separated by a new-line character, or the return key.<br>
+            If the statement is too long, you can use a backslash (\) to continue the statement to the next line.</p>
+            <img src="Images/Tutorial/chapter1/long.png">
+            <p><b>Comments</b> can be used to explain the meaning or logic of Python code. Comments can be used to make the code more readable. These comments are just explanations and are ignored during program execution.<br>
+                For <b>single-line comment</b>, type after the hash character #. A comment in Python starts with the # , and extends to the end of the physical line.<br>
+                For <b>multi-line comment</b>, enclose in triple-quote in your code, and place your comment inside it.</p>
+            <img src="Images/Tutorial/chapter1/comments.png">
+            <h3>Print</h3>
+            <p>The <b>print()</b> function prints the specified message to the screen, or other standard output device. The message can be a string, or any other object, the object will be converted into a string before written to the screen.<br><br>
+            To make the next print statement print at the end of the current print statement, use <b>end = ""</b> .</p>
+            <img src="Images/Tutorial/chapter1/print1.png">
+            <img src="Images/Tutorial/chapter1/print2.png">
+            <h3>Values and Data Types</h3>
+            <p>A value is one of the fundamental things, like a letter or a number, that a program manipulates.<br> 
+                In Python and other programming languages, values and data are classified into various data types according to their characteristics and usage.<br>
+                Data types represent a kind of value which determines what operations can be performed on that data.<br>
+                Numeric (integer or float), non-numeric (string) and Boolean (true/false) data are the most used data types.
+            </p>
+            <img src="Images/Tutorial/chapter1/data types.png">
+            <p>Python has a function called <b>type</b> which can tell you the type of a value.<br>
+            Strings belong to the class/type <b>str</b>.<br>
+            Integers belong to the class/type <b>int</b>.<br>
+            Float belongs to to the class/type <b>float</b>.</p>
+            <img src="Images/Tutorial/chapter1/typefunction.png">
+            <section class="question">
+                <h4>Question: What is the datatype of this statement?</h4>
+                <p><b>print(type(2.0/1))</b></p>
+                <label for="chapter1-question1">Answer: </label>
+                <input type="text" id="chapter1-question1" placeholder="Hint: Try in IDLE">
+                <button id="chapter1-question1-submit" type="submit">Submit</button>
+            </section>
+            <h3>Variables</h3>
+            <p>A variable is a kind of storage box used to store values, so that these values can be used or altered later in the program.<br>
+                A variable must have a name, which must be a valid Python <b>identifier</b>.<br><br>
+                <b>Remember:</b> Variable names should be meaningful names that reflect the nature of the value stored and begin with a lowercase letter.<br>
+                You can store a value in a variable, change the contents of a variable, and also retrieve and use a stored value.
+            </p><br>
+            <img src="Images/Tutorial/chapter1/variable1.png">
+            <p>A variable has a <b>type</b> upon assignment. From the above example, string "Peter" is given a type str, while integer 17 is given a type int.<br>
+                A variable is allocated a place in computer memory when you "assign" a value to it.
+            </p>
+            <p>Variables can store a fixed value or an outcome of a calculation. Variable assignment is always in this format: <em>variable = value</em></p>
+            <img id="chapter1-variableex" src="Images/Tutorial/chapter1/variableexample.png">
+            <p>Finally, to <b>display</b> the value of a variable, simply use the print statement. There are mainly two concatenation(joining) methods to join two or more strings together.</p>
+            <h4>Method 1: Using commas</h4>
+            <p>Commas automatically inserts a spacing in between each parameter.</p>
+            <img id="chapter1-printvariableex" src="Images/Tutorial/chapter1/printvariableex.png"><br>
+            <h4>Method 2: Using '+'</h4>
+            <p>Using '+' directly concatenates the strings together, giving better control over how the string will be displayed.<br>
+                It is important to <b>type cast</b> variables that are not string into a string variable using str(<em>variable</em>) .</p>
+            <img src="Images/Tutorial/chapter1/variable2.png">
+            <img src="Images/Tutorial/chapter1/variable2result.png">
+            <br><br><br>
+            <button>End of Chapter 1. Click here to mark Chapter 1 as complete!</button>
+        </section>
+        <section id="chapter2_1" class="content" style="display: none;">
+            <br>
+            <button class="return">Return to Topic Selection</button><br><br>
+            <h2 class="heading">Chapter 2 : Operators, Functions, String Formatting!</h2>
+            <h3>Strings</h3>
+            <p>Different quotation marks can be used to enclose a string.</p>
+            <h4>Strings in Python can be enclosed in either:</h4>
+            <ul>
+                <li>Single quotes ('xxx')</li>
+                <li>Double quotes ("xxx")</li>
+                <li>Triple quotes ('''xxx''') or ("""xxx""")</li>
+            </ul>
+            <p>Since triple quotes are also used for comments, this means that strings enclosed in triple quotes can span multiple lines.<br>
+            Remember to close the string using the same quotation mark that you have used at the beginning of the string.<br>(e.g If start with ' , end with ' and not ")</p>
+            <img id="chapter2-multiplelines" src="Images/Tutorial/chapter2/multiplelines.png">
+            <h3>Operators</h3>
+            <p>Operators are symbols in programming languages to perform processing actions.</p>
+            <ul>
+                <li>Arithmetic Operators</li>
+                <li>Assignment Operator</li>
+                <li>Relational Operators</li>
+                <li>Logical Operators</li>
+            </ul>
+            <h4>Arithmetic Operators:</h4>
+            <br>
+            <img id="chapter2-arithmetic" src="Images/Tutorial/chapter2/arithmetic.png">
+            <h4>Order of Arithmetic Operators</h4>
+            <p>When more than one operator appears in an expression, the order of evaluation depends on the rules of precedence. <b>Below is the order of precedence from highest to lowest.</b></p>
+            <img id="chapter2-arithmeticprecedence" src="Images/Tutorial/chapter2/arithmeticprecedence.png">
+            <h4>Computing math formulas in Python</h4>
+            <p>The table below shows you how to write Python statements that compute various mathematical formulas involving addition, subtraction, multiplication and division.<br>
+                All multiplications require the multiplication operator. You can use parentheses to override the precedence rules. You do not use square brackets unlike in mathematics.
+            </p>
+            <img id="chapter2-mathformula" src="Images/Tutorial/chapter2/mathformula.png">
+            <h4>Assignment Operator</h4>
+            <p>Assigns value to variable. Uses the equal sign. Assignment is from right to left.<br><br>
+            <b>
+            e.g.<br>
+            k = 6<br>
+            k = k + 1</b><br><br>
+            The above example adds 1 to k and assigns the new value back to the variable k.<br>
+            Instead of writing <b>k = k + 1</b>, using <b>k += 1</b> also performs the same operation.</p>
+            <p>A simple assignment would be <b>variable = expr</b>, where the variable is an identifier and expr is an expression.<br>
+                The expression on the RHS is evaluated to produce a value which is then associated with the variable named on the LHS.<br>
+                Variables can be reassigned as many times as you need during the execution of your program.
+            </p>
+            <h4>Simultaneous Assignment</h4>
+            <p>Several values can be calculated at the same time. Simply use commas (,)</p>
+            <img id="chapter2-simultaneous" src="Images/Tutorial/chapter2/simultaneous.png">
+            <h4>Relational Operators</h4>
+            <p>Relational operators compare the two operands and produce a Boolean value of either True or False.</p>
+            <img id="chapter2-relational" src="Images/Tutorial/chapter2/relational.png">
+            <p><b>If x = 4, y = 3, z = 2</b></p>
+            <img id="chapter2-relationalpractice" src="Images/Tutorial/chapter2/relational2.png">
+            <h4>Logical Operators</h4>
+            <p>Logical operators allow us to build more complex Boolean expressions from simpler Boolean expressions.</p>
+            <img id="chapter2-logical" src="Images/Tutorial/chapter2/logical.png">
+            <p><b>If x = 1, y = 4, z = 14</b></p>
+            <img id="chapter2-logicalpractice" src="Images/Tutorial/chapter2/logical2.png">
+            <h4>Order of Operators</h4>
+            <br>
+            <img id="chapter2-order" src="Images/Tutorial/chapter2/orderofoperation.png">
+            <h4>Type conversion</h4>
+            <p>Use <b>int(), float(), str(), and bool()</b> to convert values and variables into integer, floating point, string, and boolean types respectively.</p>
+            <img id="chapter2-converttype" src="Images/Tutorial/chapter2/converttype.png">
+            <h3>Program Interactivity</h3>
+            <p><b>variable = input(prompt)</b></p>
+            <p>Built-in function in Python for getting input from user and store it into a variable.</p>
+            <img id="chapter2-input" src="Images/Tutorial/chapter2/input.png">
+            <p>You need to convert the string to int or float in order to use the numeric value.<br>
+            <b>
+                e.g.<br>
+                height = int(input("Enter your height in cm: "))<br>
+                print("Height + 10cm is:", height + 10)<br><br>
+            </b><b>Output:<br></b><b>Enter your height in cm: </b>172<br><b>Height + 10cm is: 182</b></p>
+            <h3>Math Functions</h3>
+            <p>Python comes with a large number of modules (also know as libraries) of its own which have functions for different purposes. Most common module is math that has mathematical functions for computation.</p>
+            <img src="Images/Tutorial/chapter2/importmath.png">
+            <h4>Math Functions and Constants</h4>
+            <br>
+            <img id="chapter2-mathfunctions" src="Images/Tutorial/chapter2/mathfunctions.png">
+            <section>
+                <h4>Question: Is the result true or false?</h4>
+                <p>
+                    <b>
+                        import math<br>
+                        print(int(20/14) == math.ceil(11/110)))
+                    </b>
+                </p>
+                <label for="chapter2_1-question1">Answer: </label>
+                <input type="text" id="chapter2_1-question1" placeholder="Hint: Try in IDLE">
+                <button id="chapter2_1-question1-submit" type="submit">Submit</button>
+            </section>
+            <br><br><br>
+            <button>End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
+        </section>
         
-        <script src="Javascript/main-menu.js" async></script>
+        <script src="Javascript/tutorial.js" async></script>
     </body>
 </html>
