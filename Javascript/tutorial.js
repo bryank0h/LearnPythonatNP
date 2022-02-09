@@ -13,6 +13,20 @@ $(document).ready(function () {
         });
     })
 
+    $("#lesson2_2").click(function (e) {
+        e.preventDefault();
+        $("header").slideUp("normal", function() {
+            $("#chapter2_2").slideDown("normal");
+        });
+    })
+
+    $("#lesson2_3").click(function (e) {
+        e.preventDefault();
+        $("header").slideUp("normal", function() {
+            $("#chapter2_3").slideDown("normal");
+        });
+    })
+
     $(".return").click(function(e) {
         $("header").slideDown("normal", function() {
             $(".content").slideUp("normal");

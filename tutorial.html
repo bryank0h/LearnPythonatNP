@@ -46,9 +46,14 @@
                     </ol>
                     <ol id="lesson2_2">
                         <h3>Chapter 2.2 : Functions</h3>
+                        <li>Defining a Function</li>
+                        <li>Calling a Function</li>
                     </ol>
                     <ol id="lesson2_3">
-                        <h3>Chapter 2.3 : String Formatting</h3>
+                        <h3>Chapter 2.3 : String Formatting & Debugging</h3>
+                        <li>Escape Sequence</li>
+                        <li>String Formatting</li>
+                        <li>Debugging</li>
                     </ol>
                 </div>              
             </nav>
@@ -98,7 +103,7 @@
                 For <b>single-line comment</b>, type after the hash character #. A comment in Python starts with the # , and extends to the end of the physical line.<br>
                 For <b>multi-line comment</b>, enclose in triple-quote in your code, and place your comment inside it.</p>
             <img src="Images/Tutorial/chapter1/comments.png">
-            <h3>Print</h3>
+            <h3><b>Print</b></h3>
             <p>The <b>print()</b> function prints the specified message to the screen, or other standard output device. The message can be a string, or any other object, the object will be converted into a string before written to the screen.<br><br>
             To make the next print statement print at the end of the current print statement, use <b>end = ""</b> .</p>
             <img src="Images/Tutorial/chapter1/print1.png">
@@ -120,9 +125,9 @@
                 <p><b>print(type(2.0/1))</b></p>
                 <label for="chapter1-question1">Answer: </label>
                 <input type="text" id="chapter1-question1" placeholder="Hint: Try in IDLE">
-                <button id="chapter1-question1-submit" type="submit">Submit</button>
+                <button id="chapter1-question1-submit" type="submit">Submit</button><br><br>
             </section>
-            <h3>Variables</h3>
+            <h3><b>Variables</b></h3>
             <p>A variable is a kind of storage box used to store values, so that these values can be used or altered later in the program.<br>
                 A variable must have a name, which must be a valid Python <b>identifier</b>.<br><br>
                 <b>Remember:</b> Variable names should be meaningful names that reflect the nature of the value stored and begin with a lowercase letter.<br>
@@ -149,8 +154,8 @@
         <section id="chapter2_1" class="content" style="display: none;">
             <br>
             <button class="return">Return to Topic Selection</button><br><br>
-            <h2 class="heading">Chapter 2 : Operators, Functions, String Formatting!</h2>
-            <h3>Strings</h3>
+            <h2 class="heading">Chapter 2.1 : Operators & Interactivity</h2>
+            <h3><b>Strings</b></h3>
             <p>Different quotation marks can be used to enclose a string.</p>
             <h4>Strings in Python can be enclosed in either:</h4>
             <ul>
@@ -160,8 +165,8 @@
             </ul>
             <p>Since triple quotes are also used for comments, this means that strings enclosed in triple quotes can span multiple lines.<br>
             Remember to close the string using the same quotation mark that you have used at the beginning of the string.<br>(e.g If start with ' , end with ' and not ")</p>
-            <img id="chapter2-multiplelines" src="Images/Tutorial/chapter2/multiplelines.png">
-            <h3>Operators</h3>
+            <img id="chapter2-multiplelines" src="Images/Tutorial/chapter2.1/multiplelines.png">
+            <h3><b>Operators</b></h3>
             <p>Operators are symbols in programming languages to perform processing actions.</p>
             <ul>
                 <li>Arithmetic Operators</li>
@@ -171,15 +176,15 @@
             </ul>
             <h4>Arithmetic Operators:</h4>
             <br>
-            <img id="chapter2-arithmetic" src="Images/Tutorial/chapter2/arithmetic.png">
+            <img id="chapter2-arithmetic" src="Images/Tutorial/chapter2.1/arithmetic.png">
             <h4>Order of Arithmetic Operators</h4>
             <p>When more than one operator appears in an expression, the order of evaluation depends on the rules of precedence. <b>Below is the order of precedence from highest to lowest.</b></p>
-            <img id="chapter2-arithmeticprecedence" src="Images/Tutorial/chapter2/arithmeticprecedence.png">
+            <img id="chapter2-arithmeticprecedence" src="Images/Tutorial/chapter2.1/arithmeticprecedence.png">
             <h4>Computing math formulas in Python</h4>
             <p>The table below shows you how to write Python statements that compute various mathematical formulas involving addition, subtraction, multiplication and division.<br>
                 All multiplications require the multiplication operator. You can use parentheses to override the precedence rules. You do not use square brackets unlike in mathematics.
             </p>
-            <img id="chapter2-mathformula" src="Images/Tutorial/chapter2/mathformula.png">
+            <img id="chapter2-mathformula" src="Images/Tutorial/chapter2.1/mathformula.png">
             <h4>Assignment Operator</h4>
             <p>Assigns value to variable. Uses the equal sign. Assignment is from right to left.<br><br>
             <b>
@@ -194,40 +199,40 @@
             </p>
             <h4>Simultaneous Assignment</h4>
             <p>Several values can be calculated at the same time. Simply use commas (,)</p>
-            <img id="chapter2-simultaneous" src="Images/Tutorial/chapter2/simultaneous.png">
+            <img id="chapter2-simultaneous" src="Images/Tutorial/chapter2.1/simultaneous.png">
             <h4>Relational Operators</h4>
             <p>Relational operators compare the two operands and produce a Boolean value of either True or False.</p>
-            <img id="chapter2-relational" src="Images/Tutorial/chapter2/relational.png">
+            <img id="chapter2-relational" src="Images/Tutorial/chapter2.1/relational.png">
             <p><b>If x = 4, y = 3, z = 2</b></p>
-            <img id="chapter2-relationalpractice" src="Images/Tutorial/chapter2/relational2.png">
+            <img id="chapter2-relationalpractice" src="Images/Tutorial/chapter2.1/relational2.png">
             <h4>Logical Operators</h4>
             <p>Logical operators allow us to build more complex Boolean expressions from simpler Boolean expressions.</p>
-            <img id="chapter2-logical" src="Images/Tutorial/chapter2/logical.png">
+            <img id="chapter2-logical" src="Images/Tutorial/chapter2.1/logical.png">
             <p><b>If x = 1, y = 4, z = 14</b></p>
-            <img id="chapter2-logicalpractice" src="Images/Tutorial/chapter2/logical2.png">
+            <img id="chapter2-logicalpractice" src="Images/Tutorial/chapter2.1/logical2.png">
             <h4>Order of Operators</h4>
             <br>
-            <img id="chapter2-order" src="Images/Tutorial/chapter2/orderofoperation.png">
+            <img id="chapter2-order" src="Images/Tutorial/chapter2.1/orderofoperation.png">
             <h4>Type conversion</h4>
             <p>Use <b>int(), float(), str(), and bool()</b> to convert values and variables into integer, floating point, string, and boolean types respectively.</p>
-            <img id="chapter2-converttype" src="Images/Tutorial/chapter2/converttype.png">
-            <h3>Program Interactivity</h3>
+            <img id="chapter2-converttype" src="Images/Tutorial/chapter2.1/converttype.png">
+            <h3><b>Program Interactivity</b></h3>
             <p><b>variable = input(prompt)</b></p>
             <p>Built-in function in Python for getting input from user and store it into a variable.</p>
-            <img id="chapter2-input" src="Images/Tutorial/chapter2/input.png">
+            <img id="chapter2-input" src="Images/Tutorial/chapter2.1/input.png">
             <p>You need to convert the string to int or float in order to use the numeric value.<br>
             <b>
                 e.g.<br>
                 height = int(input("Enter your height in cm: "))<br>
                 print("Height + 10cm is:", height + 10)<br><br>
             </b><b>Output:<br></b><b>Enter your height in cm: </b>172<br><b>Height + 10cm is: 182</b></p>
-            <h3>Math Functions</h3>
+            <h3><b>Math Functions</b></h3>
             <p>Python comes with a large number of modules (also know as libraries) of its own which have functions for different purposes. Most common module is math that has mathematical functions for computation.</p>
-            <img src="Images/Tutorial/chapter2/importmath.png">
+            <img src="Images/Tutorial/chapter2.1/importmath.png">
             <h4>Math Functions and Constants</h4>
             <br>
-            <img id="chapter2-mathfunctions" src="Images/Tutorial/chapter2/mathfunctions.png">
-            <section>
+            <img id="chapter2-mathfunctions" src="Images/Tutorial/chapter2.1/mathfunctions.png">
+            <section class="question">
                 <h4>Question: Is the result true or false?</h4>
                 <p>
                     <b>
@@ -237,10 +242,90 @@
                 </p>
                 <label for="chapter2_1-question1">Answer: </label>
                 <input type="text" id="chapter2_1-question1" placeholder="Hint: Try in IDLE">
-                <button id="chapter2_1-question1-submit" type="submit">Submit</button>
+                <button id="chapter2_1-question1-submit" type="submit">Submit</button><br><br>
             </section>
             <br><br><br>
             <button>End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
+        </section>
+        <section id="chapter2_2" class="content" style="display: none;">
+            <br>
+            <button class="return">Return to Topic Selection</button><br><br>
+            <h2 class="heading">Chapter 2.2 : Functions</h2>
+            <p>Assume that you have written a block of code, and you want to use it again in another part of your program.<br>
+                There is a very efficient way to reuse the code that you have written, and that is to use <b>Functions</b>.
+            </p>
+            <h3><b>Defining a Function</b></h3>
+            <p>In order to do that, you will need to insert your block of code into a function, using the <b>def</b> keyword, followed by the name of your function, followed by any parameters needed to perform the function. This process is called defining a function.<br>
+            After defining the function, if you want to return any values calculated in the function back into the main program, simply use the <b>return</b> keyword, followed by the variable/value to return.<br>
+            <b>Note: The body of your function should be indented.</b></p>
+            <img src="Images/Tutorial/chapter2.2/definefunction.png">
+            <h3><b>Calling a Function</b></h3>
+            <p>After defining a function, you can use the code that you have defined in your function by calling for it. Simply type the name of the function, along with the required parameters in the parenthesis.</p>
+            <img src="Images/Tutorial/chapter2.2/functioncall.png">
+            <br><br><br>
+            <button>End of Chapter 2.2 . Click here to mark Chapter 2.2 as complete!</button>
+        </section>
+        <section id="chapter2_3" class="content" style="display: none;">
+            <br>
+            <button class="return">Return to Topic Selection</button><br><br>
+            <h2 class="heading">Chapter 2.3 : String Formatting & Debugging</h2>
+            <h3><b>Escape Sequence</b></h3>
+            <p>Let's say we need to print a pair of single quotes as part of a string. If you enclose the string within single quotes, you will get an error.<br>
+                The solution is to insert a backslash before each single quote in the string.<br>
+                The backslash together with the single quote form an <b>escape sequence</b>.
+            </p>
+            <img id="chapter2-escape" src="Images/Tutorial/chapter2.3/escape.png">
+            <p>There are other escpae sequences but the two most commonly used are:<br>
+            <b>\n</b> : new line<br>
+            <b>\t</b> : tab stop</p>
+            <img id="chapter2-otherescape" src="Images/Tutorial/chapter2.3/otherescape.png">
+            <h3><b>String Formatting</b></h3>
+            <p>Python provides 2 ways to do <b>String Formatting</b>, allowing multiple substitutions in a string.</p>
+            <h4>Method 1: % operator</h4><br>
+            <img src="Images/Tutorial/chapter2.3/percent.png">
+            <h4>Method 2: format()</h4><br>
+            <img src="Images/Tutorial/chapter2.3/format.png">
+            <p><b>As of Python 3, the 2nd method is the preferred standard.</b></p>
+            <img id="chapter2-basicformat" src="Images/Tutorial/chapter2.3/basicformat.png">
+            <p><b>format() method allows for <u>rearrangement</u> in output without changing order of arguments:</b></p>
+            <img id="chapter2-rearrangeformat" src="Images/Tutorial/chapter2.3/rearrangeformat.png"><br>
+            <h4>For strings, integers and floating point:</h4><br>
+            <img id="chapter2-string" src="Images/Tutorial/chapter2.3/stringformat.png"><br>
+            <img id="chapter2-intfloat" src="Images/Tutorial/chapter2.3/integerfloatformat.png"><br>
+            <img id="chapter2-decimalprecision" src="Images/Tutorial/chapter2.3/decimalprecision.png">
+            <h4>Padding and Alignment</h4>
+            <p>By default, values will take up as many characters as needed to represent the content. It is also possible to pad a value to a certain length.<br>
+            The format() method defaults alignment to the <b>left</b> for strings. For other types, the alignment is to the <b>right</b>.<br>
+            <b>Example of padding the length of 10 character spaces to the content:</b></p>
+            <img src="Images/Tutorial/chapter2.3/padding.png">
+            <h4>Formatting using format():</h4><br>
+            <img id="chapter2-otherformat" src="Images/Tutorial/chapter2.3/otherformat.png">
+            <img id="chapter2-formatspecifier" src="Images/Tutorial/chapter2.3/formatspecifier.png">
+            <img id="chapter2-formattype" src="Images/Tutorial/chapter2.3/commonformat.png">
+            <h4>Example of using format() in program:</h4><br>
+            <img id="chapter2-formatexample" src="Images/Tutorial/chapter2.3/formatexample.png">
+            <h3><b>Debugging</b></h3>
+            <p>Different types of errors can occur - popularly known as <b>bugs</b> in a computer program.<br>
+                It is important for programmers to know how to <b>debug</b> and solve those problems in the program.
+            </p>
+            <h4>Syntax Errors</h4>
+            <p>These are errors due to violation of the language syntax. Python program with syntax error <b>will not run</b>.<br>
+            E.g. Missing end quote for string</p>
+            <img src="Images/Tutorial/chapter2.3/syntaxerror.png">
+            <h4>Runtime/Execution Errors</h4>
+            <p>These are errors that occur during <b>running/execution</b> of program.<br>
+            Python program will <b>run until code with error</b>, then program <b>will terminate</b> with error message.</p>
+            <img src="Images/Tutorial/chapter2.3/runtimeerror.png">
+            <h4>Logic/Semantic Errors</h4>
+            <p>These errors occur when the logic of the program is not written correctly.<br>
+            The program is able to run but output (result) produced is <b>incorrect</b>.<br>
+            E.g. Wrong formula, forgetting precedence of operators in expression, wrong conditions in if else statements.</p>
+            <h4>Debugger</h4>
+            <p>It is very difficult to figure out the bugs in your progran simply by eye inspection.<br>
+                Hence, programmers make use of a <b>Debugger</b>, a program that allows stepping through code <b>line by line</b> in the same order of execution, and showing what values are stored in variables each step.
+            </p>
+            <br><br><br>
+            <button>End of Chapter 2.3 . Click here to mark Chapter 2.3 as complete!</button>
         </section>
         
         <script src="Javascript/tutorial.js" async></script>

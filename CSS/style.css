@@ -674,7 +674,7 @@ html {
     transition: .165s ease-in;
 }
 
-.Tutorial > body > .content > *:not(h2):hover {
+.Tutorial > body > .content > *:not(h2, img):hover {
     background-color: rgba(255, 255, 255, 0.627);
     transition: .2s ease-in;
     transition-delay: .7s;
@@ -686,7 +686,7 @@ html {
 }
 
 .Tutorial > body > .content > h4 {
-    margin-bottom: -13px;
+    margin-bottom: -10px;
     margin-top: 0px;
     padding-top: 0px;
     padding-left: 10px;
@@ -730,6 +730,16 @@ html {
 .Tutorial > body > .content img {
     position: relative;
     bottom: 23px;
+}
+
+.Tutorial > body > .content .question {
+    background-color: rgba(255, 255, 255, 0.654);
+}
+
+.Tutorial > body > .content > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Tutorial > body > #chapter1 #chapter1-shortcuts {
@@ -793,6 +803,42 @@ html {
 }
 
 .Tutorial > body > #chapter2_1 #chapter2-mathfunctions {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-escape {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-otherescape {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-basicformat {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-rearrangeformat {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-string {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-intfloat {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-decimalprecision {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-otherformat {
+    width: 500px;
+}
+
+.Tutorial > body > #chapter2_3 #chapter2-formattype {
     width: 500px;
 }
 
