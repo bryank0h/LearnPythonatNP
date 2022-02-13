@@ -30,9 +30,9 @@
         </script>
         <header>
             <h1>Speed Training Mode</h1>
-            <p>Welcome to <b>Speed Training Mode</b>. This is the place where you test the skills that you have learned, and polish them against time!<br><br>
+            <p>Welcome to <b>Speed Training Mode</b>. This is the place where you test the skills that you have learned, and polish them against time! Challenging against time may sound tough, but this is indeed the best method to activate your minds and work on problems like never before. Do these questions like your life depended on it, and your programming skills will eventually elevate to greater heights!<br><br>
             <b>Easy Mode&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> : 10 randomized MCQ questions, 30 seconds per question.<br>
-            <b>Standard Mode</b> : 10 randomized Fill-in-the-blank questions, 1 minute and 30 seconds per question, and earn points to purchase hints or more time!</p>
+            <b>Standard Mode</b> : 10 randomized Fill-in-the-blank questions, 1 minute and 30 seconds per question, only for those who wants a real challenge!</p>
             <h2>Select Difficulty:</h2>
             <nav>
                 <button id="easy" data-timesup="">Easy</button>   
@@ -60,9 +60,9 @@
                 </ol>
                 <button id="begin-easy">Begin</button>
             </section>
-            <section id="easy-content" style="display: none;">
+            <section id="easy-content" class="quiz-content" style="display: none;">
                 <section class="row">
-                    <section id="pointsAndTimer">
+                    <section class="pointsAndTimer">
                         <div>
                             <b>
                                 Points: <span id="easypoints">0000</span>
@@ -70,7 +70,7 @@
                         </div>
                         <div>
                             <b>
-                                Timer: <span id="minute">00</span>:<span id="second">00</span>
+                                Timer: <span id="easyminute" class="minute">00</span>:<span id="easysecond" class="second">00</span>
                             </b>
                         </div>
                     </section>
@@ -90,17 +90,53 @@
                 </section>
             </section>
             <section id="easy-results" style="display: none;">
-                <p>Points: <span id="easypointsresult"></span></p>
+                <p>Points: <span id="easypointsresult"></span> <img class="full-marks" src="Images/Speed Training/hundred.png" style="display: none;" width="25px" height="25px"></p>
                 <p>Total Time Spent: <span id="easyminresult">00</span>:<span id="easysecresult">00</span></p>
             </section>
         </section>
         <section id="standardmode" class="content" style="display: none;">
             <button class="return">Stop Training</button><br><br>
             <h2>Standard Mode</h2>
-            <div>
-                <span id="minute">00</span>:<span id="second">00</span>
-                <button id="timer"></button>
-            </div>
+            <section id="standard-instructions">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>There are 10 Fill-in-the-blank questions.</li>
+                    <li>You have 1 minute 30 seconds to answer each question.</li>
+                    <li>More difficult than easy mode, in case you're wondering...</li>
+                    <li>Fill in all answers before clicking "submit", because unlike easy mode, no chance is given for blanks :)</li>
+                    <li>Points are awarded, and the faster you answer, the more points you earn.</li>
+                    <li>You can always stop the training and return to the selection page.</li>
+                    <li>If you get the maximum points (25000 points), a certificate will be shown on screen for you to take a screenshot!</li>
+                    <li>Do your best!</li>
+                </ol>
+                <button id="begin-standard">Begin</button>
+            </section>
+            <section id="standard-content" class="quiz-content"  style="display: none;">
+                <section class="row">
+                    <section class="pointsAndTimer">
+                        <div>
+                            <b>
+                                Points: <span id="standardpoints">00000</span>
+                            </b>
+                        </div>
+                        <div>
+                            <b>
+                                Timer: <span id="standardminute" class="minute">00</span>:<span id="standardsecond" class="second">00</span>
+                            </b>
+                        </div>
+                    </section>
+                </section>
+                <section id="standardquestionsection">
+                    <h3>Question <span id="standardquestionnumber"></span>:</h3>  
+                    <h4 id="standard-question"></h4>
+                    <br><br><br>
+                    <button id="submit-standard">Submit</button>
+                </section>
+            </section>
+            <section id="standard-results" style="display: none;">
+                <p>Points: <span id="standardpointsresult"></span> <img class="full-marks" src="Images/Speed Training/hundred.png" style="display: none;" width="25px" height="25px"></p>
+                <p>Total Time Spent: <span id="standardminresult">00</span>:<span id="standardsecresult">00</span></p>
+            </section>
         </section>
         <script src="Javascript/speed-training.js" async></script>
     </body>

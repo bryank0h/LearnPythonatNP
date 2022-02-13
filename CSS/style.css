@@ -985,14 +985,14 @@ html {
     justify-content: end;
 }
 
-.Speed-Training > body > #easymode > #easy-content > .row > #pointsAndTimer {
+.Speed-Training > body > section > .quiz-content > .row > .pointsAndTimer {
     font-size: x-large;
     display: flex;
     flex-direction: row;
     justify-content: end;
 }
 
-.Speed-Training > body > #easymode > #easy-content > .row > #pointsAndTimer div {
+.Speed-Training > body > section > .quiz-content > .row > .pointsAndTimer div {
     padding: 10px;
 }
 
@@ -1050,6 +1050,49 @@ html {
     font-size: x-large;
 }
 
+.Speed-Training > body > #standardmode > #standard-instructions button {
+    padding: 8px 35px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.Speed-Training > body > #standardmode > #standard-content > #standardquestionsection {
+    display: flex;
+    flex-direction: column;
+}
+
+.Speed-Training > body > #standardmode > #standard-content > #standardquestionsection > h3 {
+    font-size: x-large;
+}
+
+.Speed-Training > body > #standardmode > #standard-content > #standardquestionsection > h4 input {
+    margin: 2px;
+    width: 150px;
+}
+
+.Speed-Training > body > #standardmode > #standard-content > #standardquestionsection > #submit-standard {
+    font-size: larger;
+    color: white;
+    background-color: rgb(50, 179, 73);
+    cursor: pointer;
+    margin: 0px 15px;
+    height: 60px;
+    transition: .165s ease-in;
+    border: 0px;
+}
+
+.Speed-Training > body > #standardmode > #standard-content > #standardquestionsection > #submit-standard:hover {
+    background-color: rgb(28, 129, 47);
+    transform: scale(1.04);
+    transition: .2s ease-in;
+}
+
+.Speed-Training > body > #standardmode > #standard-results {
+    font-weight: bolder;
+    font-size: x-large;
+}
 
 @media only screen and (max-width: 1300px) {
     .Speed-Training {

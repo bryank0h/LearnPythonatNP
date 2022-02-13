@@ -20,6 +20,7 @@ $(document).ready(function () {
    
     // Upon clicking on "Easy" mode.
     $("#easy").click(function(e) {
+        e.preventDefault;
         if ($("#easy").data("timesup") == "false") {
             Swal.fire({
                 title: 'Reloading page',
@@ -33,14 +34,13 @@ $(document).ready(function () {
                 window.location.reload();
             })
         }
-        e.preventDefault;
         $("nav").hide();
         $("#mainmenu").hide();
         $("header").slideUp("normal", function() {
             $("#easymode").slideDown("normal");
         });
-        $("#minute").text(easymintext);
-        $("#second").text(easysectext);
+        $(".minute").text(easymintext);
+        $(".second").text(easysectext);
         minute = easymin;
         second = easysec;
         selectedmin = easymin;
@@ -52,13 +52,26 @@ $(document).ready(function () {
     // Upon clicking on "Standard" mode.
     $("#standard").click(function(e) {
         e.preventDefault;
+        if ($("#standard").data("timesup") == "false") {
+            Swal.fire({
+                title: 'Reloading page',
+                text: 'We will reload the page as you have attempted a training just now.',
+                icon: 'info',
+                showConfrimButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: () => {Swal.showLoading()}
+            }).then(function () {
+                window.location.reload();
+            })
+        }
         $("nav").hide();
         $("#mainmenu").hide();
         $("header").slideUp("normal", function() {
             $("#standardmode").slideDown("normal");
         });
-        $("#minute").text(standardmintext);
-        $("#second").text(standardsectext);
+        $(".minute").text(standardmintext);
+        $(".second").text(standardsectext);
         minute = standardmin;
         second = standardsec;
         selectedmin = standardmin;
@@ -71,14 +84,14 @@ $(document).ready(function () {
     $(".return").click(function(e) {
         pause();
         reset();
-        $("#minute").text('00');
-        $("#second").text('00');
+        $(".minute").text('00');
+        $(".second").text('00');
         $("#easy").data("timesup", "false");
         $("#standard").data("timesup", "false");
         $("#easy-instructions").slideDown("normal");
         $("#easy-content").slideUp("normal");
-        $("#minute").css("color", "black");
-        $("#second").css("color", "black");
+        $(".minute").css("color", "black");
+        $(".second").css("color", "black");
         $(".easyoption").removeAttr("style");
         $("#easypointsresult").text("");
         $("#easyminresult").text("00");
@@ -103,8 +116,8 @@ $(document).ready(function () {
         minute = selectedmin;
         second = selectedsec;
         millisecond = 0;
-        $("#minute").text(selectedmintext);
-        $("#second").text(selectedsectext);
+        $(".minute").text(selectedmintext);
+        $(".second").text(selectedsectext);
     }
 
     function timer() { 
@@ -124,12 +137,12 @@ $(document).ready(function () {
             $("#easy").attr("data-timesup", "true");
             $("#standard").attr("data-timesup", "true");
             pause();
-            $("#minute").css("color", "red");
-            $("#second").css("color", "red");
+            $(".minute").css("color", "red");
+            $(".second").css("color", "red");
         }
         else {
-            $("#minute").text(returnData(minute));
-            $("#second").text(returnData(second));
+            $(".minute").text(returnData(minute));
+            $(".second").text(returnData(second));
         } 
     }
 
@@ -239,8 +252,8 @@ $(document).ready(function () {
                 }).then(function () {
                     $("#easy").data("timesup", "false");
                     $("#standard").data("timesup", "false");
-                    $("#minute").css("color", "black");
-                    $("#second").css("color", "black");
+                    $(".minute").css("color", "black");
+                    $(".second").css("color", "black");
                     $(".easyoption").removeAttr("style");
                     timetakenlist.push(easysec);
                     if (i != 9) {
@@ -260,7 +273,7 @@ $(document).ready(function () {
                     icon: 'success'
                 }).then(function () {
                     $(".easyoption").removeAttr("style");
-                    let timetaken = easysec - parseInt($("#second").text());    
+                    let timetaken = easysec - parseInt($("#easysecond").text());    
                     if (timetaken <= 10) {
                         points = easypoints[0];
                     }
@@ -306,7 +319,7 @@ $(document).ready(function () {
             }
             else if (selectedoption != easyanswers[randomquestions[i]]) {
                 pause();
-                let timetaken = easysec - parseInt($("#second").text());  
+                let timetaken = easysec - parseInt($("#easysecond").text());  
                 Swal.fire({
                     title: 'You got it wrong!',
                     text: "Correct Answer: " + $(answer).text(),
@@ -349,5 +362,255 @@ $(document).ready(function () {
         }
         $("#easyminresult").text(totalminutes);
         $("#easysecresult").text(totalseconds);
+        if ($("#easypoints").text() == '3000') {
+            $(".full-marks").slideDown("slow");
+        }
+    }
+
+    // Standard mode
+    let standardquestions = ['Fill in the blanks, and concatenate string1 and string3 such that the output of the print statement is "HelloWorld". (You do not need to put spacings between the concatenation) <br><br>string1 = "Hello"<br>string2 = "Python"<br>\
+                            string3 = "World"<br><input id="blank1" type="text" required></input> = <input id="blank2" type="text" required></input><br>print(result)',
+                            "Fill in the blank such that the following expression results to 'False'<br><br>(4 <= 2 * 3) <input id='blank1' type='text' required></input> (7 + 2 == 8)",
+                            "Fill in the blanks so that the print statement will print '6'.<br><br>def multiply(x, y):<br>&emsp;&emsp;return x * y<br><br>a, b = 2, 3<br>print(<input id='blank1' type='text' required></input>)",
+                            "Fill in the blanks to iterate through wordList and append any word that contains the letter 'l' to the list containsL.<br><br>wordList = ['let', 'there', 'be', light', 'and', 'there', 'was', 'light']<br>containsL = []<br>\
+                            for word in <input id='blank1' type='text' required></input>:<br>&emsp;&emsp;If 'l' <input id='blank2' type='text' required></input>:<br>&emsp;&emsp;&emsp;&emsp;<input id='blank3' type='text' required></input>(word)",
+                            "Given a list of cities, how would you remove 'Chicago' and reinsert it after 'Beijing' and before 'New York'?<br><br>cityList = ['Singapore', 'Chicago', 'Tokyo', 'Beijing', 'New York']<br><input id='blank1' type='text' required></input>.pop(<input id='blank2' type='text' required></input>)<br>cityList.<input id='blank3' type='text' required></input>(<input id='blank4' type='text' required></input> , <input id='blank5' type='text' required></input>)",
+                            "Fill in the blanks such that the numbers that are 20 and above are not printed.<br><br>numberList = [3, 8, 15, 20, 22, 29, 36, 14]<br>for number in numberList:<br>&emsp;&emsp;if number >= 20:<br>&emsp;&emsp;&emsp;&emsp;<input id='blank1' type='text' required></input><br>&emsp;&emsp;print(number)",
+                            'Given that the output of the following code is "temp < 0", fill in the blanks to show the expected output.<br><br>temp = -15<br><input id="blank1" type="text" required></input> (temp < 0) :<br>&emsp;&emsp;print("temp < 0")<br><input id="blank2" type="text" required></input> (temp < 10) :<br>&emsp;&emsp;print("temp < 10")<br>else:<br>&emsp;&emsp;print("temp >= 10")',
+                            "Assume that there is a list called myList, however you are not being told how many elements are in myList. Fill in the blanks to display the last three elements of myList.<br><br>print(myList[<input id='blank1' type='text' required></input>])",
+                            "The following code increases all the price in the priceList by 2. Fill in the blanks to update all the values in the price list. (Also, use a list function to count the length of the string instead of counting manually)<br><br>priceList = [ 1.50, 7.10, 8.90, 6.20, 24.00, 12.30, 4.70, 5.00 ]<br>for i in <input id='blank1' type='text' required></input>:<br>&emsp;&emsp;priceList[i] <input id='blank2' type='text' required></input> 2",
+                            "Fill in the blanks to prompt the user for pin number until correct pin has been entered. The correct pin is '12345'.<br><br>pin = 0<br><input id='blank1' type='text' required></input> pin <input id='blank2' type='text' required></input> '12345':<br>&emsp;&emsp;pin = <input id='blank3' type='text' required></input>('Enter pin: ')<br>print('Correct pin entered!')",
+                            "Create a function that prints the number if an even number is passed into the function.<br><br><input id='blank1' type='text' required></input> is_even(<input id='blank2' type='text' required>):<br>&emsp;&emsp;if n <input id='blank3' type='text' required></input> 2 == 0:<br>&emsp;&emsp;&emsp;&emsp;print(n)",
+                            "Fill in the blanks to read data from the csv file named 'colors.csv'.<br><br> file = open('colors.csv', 'r')<br>line = file.<input id='blank1' type='text' required></input>()<br>file.close()",
+                            "Convert the following algebric expression into python code. (No need to put spacing for each number/operator)<br><br><img src='Images/Speed Training/equation.png' width='150px'><br><br>y = (<input id='blank1' type='text' required></input>) / (<input id='blank2' type='text' required></input>)",
+                            "Write code to generate a random integer between 1 to 100.<br><br>import <input id='blank1' type='text' required></input><br>print(<input id='blank2' type='text' required></input>.<input id='blank3' type='text' required></input>(1, 100))",
+                            "Complete the code to display the interest in 2 decimal places.<br><br>principal = 10000.00<br>rate = '10.5'<br>duration = 2<br>interest = (principal * <input id='blank1' type='text' required></input>(rate) * duration) / 100<br>print('Interest ($) : { <input id='blank2' type='text' required></input> }'.format(<input id='blank3' type='text' required></input>))"];
+    let standardanswers = [["result", "string1+string3"],
+                           ["and"],
+                           [],
+                           ["wordList", "in word", "containsL.append"],
+                           ["cityList", "1", "insert", "3", "'Chicago'"],
+                           ["continue"],
+                           ["if", "elif"],
+                           ["-3:"],
+                           ["range(len(priceList))", "+="],
+                           ["while", "!=", "input"],
+                           ["def", "n", "%"],
+                           [],
+                           ["a*x**3+b*x**2+c*x", "4"],
+                           ["random", "random", "randint"],
+                           ["float", ":.2f", "interest"]];
+    let multipleanswers = [[],
+                           [],
+                           ["multiply(a,b)","multiply(b,a)"],
+                           [],
+                           [],
+                           [],
+                           [],
+                           [],
+                           [],
+                           [],
+                           [],
+                           ["read", "readline", "readlines"],
+                           [],
+                           [],
+                           []];
+
+    let numberofblanks = [2, 1, 1, 3, 5, 1, 2, 1, 2, 3, 3, 1, 2, 3, 3];
+    let standardpoints = [2500, 1500, 1000, 700, 400]
+    randomquestions = [];
+    timetakenlist = [];
+
+    $("#begin-standard").click(function (e) {
+        $("#standard-instructions").slideUp("normal");
+        while(true) {
+            number = Math.floor((Math.random() * (standardquestions.length - 1)) + 1);
+            repeatedflag = false;
+            for (let i of randomquestions) {
+                if (i == number) {
+                    repeatedflag = true;
+                    break;
+                }
+            }
+            if (repeatedflag == false) {
+                randomquestions.push(number);
+            }
+            if (randomquestions.length == 10) {
+                break;
+            }   
+        }
+        $("#standard-content").slideDown("normal");
+        standardquiz(0)   
+    })
+    function standardquiz(i) {
+        reset();
+        start();
+        question = randomquestions[i];
+        $("#standardquestionnumber").text(i + 1);
+        $("#standard-question").html(standardquestions[randomquestions[i]]);
+        $("#submit-standard").click(function (e) {
+            let answers;
+            let answer;
+            correctflag = false;
+            if (standardanswers[randomquestions[i]].length == 0) {
+                answers = multipleanswers[randomquestions[i]];
+                for (let i = 0; i < answers.length; i++) {
+                    if ($("#blank1").val() == answers[i]) {
+                        correctflag = true;
+                        break;
+                    }
+                }
+                answer = "";
+                for (let n = 0; n < answers.length; n++) {
+                    answer += answers[n]
+                    if (n < answers.length - 1) {
+                        answer += "/";
+                    }
+                } 
+            }
+            else {
+                answers = standardanswers[randomquestions[i]];
+                let blanks = numberofblanks[randomquestions[i]];
+                for (let n = 1; n <= blanks; n++)  {
+                    let id = "#blank" + String(n);
+                    if ($(id).val() == answers[n-1]) {
+                        correctflag = true;
+                        continue;
+                    }
+                    else {
+                        correctflag = false;
+                    }
+                    if (correctflag == false) {
+                        break;
+                    }
+                }
+                answer = "";
+                for (let n = 0; n < blanks; n++) {
+                    answer += answers[n]
+                    if (n < blanks - 1) {
+                        answer += ", ";
+                    }
+                }
+            }
+            if ($("#standard").attr("data-timesup") == "true") {
+                Swal.fire({
+                    title: 'You\'ve exceeded the time!',
+                    text: "It's okay! Just understand the concepts well and you'll make it some day!\nCorrect Answer: " + answer,
+                    icon: 'warning'
+                }).then(function () {
+                    $("#easy").attr("data-timesup", "false");
+                    $("#standard").attr("data-timesup", "false");
+                    $(".minute").css("color", "black");
+                    $(".second").css("color", "black");
+                    timetakenlist.push(standardmin * 60 + standardsec);
+                    if (i != 9) {
+                        i++;
+                        standardquiz(i)
+                    }
+                    else {
+                        standardresults();
+                    }
+                })
+            }
+            else if (correctflag) {
+                pause();
+                Swal.fire({
+                    title: 'You got it right!',
+                    text: "Correct Answer(s): " + answer,
+                    icon: 'success'
+                }).then(function () {
+                    let totalallocatedsec = standardmin * 60 + standardsec;
+                    let unusedallocatedsec = parseInt($("#standardminute").text()) * 60 + parseInt($("#standardsecond").text())
+                    let timetaken = totalallocatedsec - unusedallocatedsec;
+                    console.log(timetaken);
+                    let points;
+                    if (timetaken <= 30) {
+                        points = standardpoints[0];
+                    }
+                    else if (timetaken <= 45) {
+                        points = standardpoints[1];
+                    }
+                    else if (timetaken <= 60) {
+                        points = standardpoints[2];
+                    }
+                    else if (timetaken <= 75) {
+                        points = standardpoints[3];
+                    }
+                    else {
+                        points = standardpoints[4]
+                    }
+                    let updatedpoints = parseInt($("#standardpoints").text()) + points;
+                    let newpoints = String(updatedpoints);
+                    if (newpoints.length < 5) {
+                        let newpointscopy = newpoints;
+                        let stringofzeros = "";
+                        while (newpointscopy.length < 5) {
+                            newpointscopy += "0"
+                            stringofzeros += "0"
+                        }
+                        $("#standardpoints").text(stringofzeros + newpoints);
+                    }
+                    else {
+                        $("#standardpoints").text(newpoints);
+                    }
+                    timetakenlist.push(timetaken);
+                    if (i != 9) {
+                        i++;
+                        standardquiz(i)
+                    }
+                    else{
+                        standardresults();
+                    }  
+                })
+            }
+            else {
+                pause();
+                let totalallocatedsec = standardmin * 60 + standardsec;
+                let unusedallocatedsec = parseInt($("#standardminute").text()) * 60 + parseInt($("#standardsecond").text())
+                let timetaken = totalallocatedsec - unusedallocatedsec;
+                Swal.fire({
+                    title: 'You got it wrong!',
+                    text: "Correct Answer: " + answer,
+                    icon: 'error'
+                }).then(function () {
+                    timetakenlist.push(timetaken);
+                    if (i != 9) {
+                        i++;
+                        standardquiz(i)
+                    }      
+                    else {
+                        standardresults();
+                    }    
+                })
+            }
+        })  
+    }
+    function standardresults() {
+        reset();
+        $("#standard-content").slideUp("normal");
+        $("#standard-results").slideDown("normal");
+        $("#standardpointsresult").text($("#standardpoints").text());
+        let totalseconds = 0;
+        for (let t of timetakenlist) {
+            totalseconds += t;
+        }
+        let totalminutes = 0;
+        if (totalseconds > 60) {
+            totalminutes = Math.floor(totalseconds/60);
+            totalseconds -= totalminutes * 60;
+        }
+        totalminutes = String(totalminutes);
+        totalseconds = String(totalseconds);
+        if (totalminutes.length != 2) {
+            totalminutes = "0" + totalminutes;
+        }
+        if (totalseconds.length != 2) {
+            totalseconds = "0" + totalseconds;
+        }
+        $("#standardminresult").text(totalminutes);
+        $("#standardsecresult").text(totalseconds);
+        if ($("#standardpoints").text() == '25000') {
+            $(".full-marks").slideDown("slow");
+        }
     }
 })
