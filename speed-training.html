@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="Speed-Training">
+    <head>
+        <meta charset="utf-8">
+        <title>Speed Training</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Libraries/normalize.css">
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>   
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            if (localStorage.getItem('user1') == null) {
+            Swal.fire(
+                'Sorry',
+                'It appears that you are not logged in.',
+                'error'
+            ).then(function () {
+                window.location.replace("index.html");
+            })  
+        };
+        </script>
+        <button id="mainmenu" onclick="back()">Return to Main Menu</button>
+        <script>
+            function back() {
+                window.location.assign("main-menu.html");
+            }
+        </script>
+        <header>
+            <h1>Speed Training Mode</h1>
+            <p>Welcome to <b>Speed Training Mode</b>. This is the place where you test the skills that you have learned, and polish them against time!<br><br>
+            <b>Easy Mode&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> : 10 randomized MCQ questions, 30 seconds per question.<br>
+            <b>Standard Mode</b> : 10 randomized Fill-in-the-blank questions, 1 minute and 30 seconds per question, and earn points to purchase hints or more time!</p>
+            <h2>Select Difficulty:</h2>
+            <nav>
+                <button id="easy" data-timesup="">Easy</button>   
+                <button id="standard" data-timesup="">Standard</button>          
+            </nav>
+            <br>
+            <figure>
+                <img class="gif" alt="Road Runner Coyote GIF" title="Road Runner Coyote GIF" src="Images/GIF/road-runner-coyote.gif"></a>
+                <figcaption>GIF from <a target="_blank" href="https://tenor.com/view/road-runner-coyote-wile-e-coyote-chasing-hunting-gif-18107569">Tenor</a></figcaption>
+            </figure>
+        </header>
+        <section id="easymode" class="content" style="display: none;">
+            <button class="return">Stop Training</button><br><br>
+            <h2>Easy Mode</h2>
+            <section id="easy-instructions">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>There are 10 MCQ questions.</li>
+                    <li>You have 30 seconds to answer each question.</li>
+                    <li>Select an answer before clicking on "Submit".</li>
+                    <li>Points are awarded, and the faster you answer, the more points you earn.</li>
+                    <li>You can always stop the training and return to the selection page.</li>
+                    <li>If you get the maximum points (3000 points), a certificate will be shown on screen for you to take a screenshot!</li>
+                    <li>Do your best!</li>
+                </ol>
+                <button id="begin-easy">Begin</button>
+            </section>
+            <section id="easy-content" style="display: none;">
+                <section class="row">
+                    <section id="pointsAndTimer">
+                        <div>
+                            <b>
+                                Points: <span id="easypoints">0000</span>
+                            </b>
+                        </div>
+                        <div>
+                            <b>
+                                Timer: <span id="minute">00</span>:<span id="second">00</span>
+                            </b>
+                        </div>
+                    </section>
+                </section>
+                <section id="easyquestionsection">
+                    <h3>Question <span id="easyquestionnumber"></span>:</h3>  
+                    <h4 id="easy-question"></h4>
+                    <br>
+                    <section class="options">
+                        <button id="easy1" class="easyoption"></button>
+                        <button id="easy2" class="easyoption"></button>
+                        <button id="easy3" class="easyoption"></button>
+                        <button id="easy4" class="easyoption"></button>
+                    </section>
+                    <br><br>
+                    <button id="submit-easy">Submit</button>
+                </section>
+            </section>
+            <section id="easy-results" style="display: none;">
+                <p>Points: <span id="easypointsresult"></span></p>
+                <p>Total Time Spent: <span id="easyminresult">00</span>:<span id="easysecresult">00</span></p>
+            </section>
+        </section>
+        <section id="standardmode" class="content" style="display: none;">
+            <button class="return">Stop Training</button><br><br>
+            <h2>Standard Mode</h2>
+            <div>
+                <span id="minute">00</span>:<span id="second">00</span>
+                <button id="timer"></button>
+            </div>
+        </section>
+        <script src="Javascript/speed-training.js" async></script>
+    </body>
+</html>
