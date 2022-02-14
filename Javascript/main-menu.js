@@ -80,9 +80,9 @@ $(document).ready(function () {
                 })
                 Swal.fire({
                     title: 'Your profile picture has been changed!',
-                    text: 'The page will reload in 10 seconds. Please wait so that the changes are reflected.',
+                    text: 'The page will reload. Please wait so that the changes are reflected.',
                     icon: 'success',
-                    timer: 10000,
+                    timer: 6000,
                     timerProgressBar: true,
                     showConfirmButton: false
                 })

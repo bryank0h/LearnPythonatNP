@@ -6,6 +6,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="CSS/style.css">
     </head>   
     <body>
@@ -31,8 +34,8 @@
         <header>
             <h1>Speed Training Mode</h1>
             <p>Welcome to <b>Speed Training Mode</b>. This is the place where you test the skills that you have learned, and polish them against time! Challenging against time may sound tough, but this is indeed the best method to activate your minds and work on problems like never before. Do these questions like your life depended on it, and your programming skills will eventually elevate to greater heights!<br><br>
-            <b>Easy Mode&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> : 10 randomized MCQ questions, 30 seconds per question.<br>
-            <b>Standard Mode</b> : 10 randomized Fill-in-the-blank questions, 1 minute and 30 seconds per question, only for those who wants a real challenge!</p>
+            <b>Easy Mode&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> : 10 randomized MCQ questions, 30 seconds per question.<br>
+            <b>Standard Mode</b> : 10 randomized Fill-in-the-Blank questions, 1 minute and 30 seconds per question, only for those who wants a real challenge!</p><br>
             <h2>Select Difficulty:</h2>
             <nav>
                 <button id="easy" data-timesup="">Easy</button>   
@@ -92,6 +95,7 @@
             <section id="easy-results" style="display: none;">
                 <p>Points: <span id="easypointsresult"></span> <img class="full-marks" src="Images/Speed Training/hundred.png" style="display: none;" width="25px" height="25px"></p>
                 <p>Total Time Spent: <span id="easyminresult">00</span>:<span id="easysecresult">00</span></p>
+                <div id="fullmarkscertificate-easy" style="display: none;"></div>
             </section>
         </section>
         <section id="standardmode" class="content" style="display: none;">
@@ -100,7 +104,7 @@
             <section id="standard-instructions">
                 <h3>Instructions:</h3>
                 <ol>
-                    <li>There are 10 Fill-in-the-blank questions.</li>
+                    <li>There are 10 Fill-in-the-Blank questions.</li>
                     <li>You have 1 minute 30 seconds to answer each question.</li>
                     <li>More difficult than easy mode, in case you're wondering...</li>
                     <li>Fill in all answers before clicking "submit", because unlike easy mode, no chance is given for blanks :)</li>
@@ -136,6 +140,7 @@
             <section id="standard-results" style="display: none;">
                 <p>Points: <span id="standardpointsresult"></span> <img class="full-marks" src="Images/Speed Training/hundred.png" style="display: none;" width="25px" height="25px"></p>
                 <p>Total Time Spent: <span id="standardminresult">00</span>:<span id="standardsecresult">00</span></p>
+                <div id="fullmarkscertificate-standard" style="display: none;"></div>
             </section>
         </section>
         <script src="Javascript/speed-training.js" async></script>

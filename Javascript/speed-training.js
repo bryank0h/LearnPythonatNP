@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    let userinfo = JSON.parse(localStorage.getItem('user1'));
+    let username = userinfo.username;
+
     // Timer settings
     let easymin = 0;
     let easysec = 30;
@@ -90,12 +93,13 @@ $(document).ready(function () {
         $("#standard").data("timesup", "false");
         $("#easy-instructions").slideDown("normal");
         $("#easy-content").slideUp("normal");
+        $("#easy-results").slideUp("normal");
+        $("#standard-instructions").slideDown("normal");
+        $("#standard-content").slideUp("normal");
+        $("#standard-results").slideUp("normal");
         $(".minute").css("color", "black");
         $(".second").css("color", "black");
         $(".easyoption").removeAttr("style");
-        $("#easypointsresult").text("");
-        $("#easyminresult").text("00");
-        $("#easysecresult").text("00");
         $("#easy-results").slideUp("normal");
         $("nav").show();
         $("#mainmenu").show();
@@ -364,8 +368,33 @@ $(document).ready(function () {
         $("#easysecresult").text(totalseconds);
         if ($("#easypoints").text() == '3000') {
             $(".full-marks").slideDown("slow");
+            $("#fullmarkscertificate-easy").slideDown("slow");
+            createEasyCertificate();
         }
     }
+    function createEasyCertificate() {
+        $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas><br><a id="easy-download-btn"><u>Download</u></a>')
+        let canvas = document.getElementById('easy-canvas');
+        let ctx = canvas.getContext('2d');
+        let downloadBtn = document.getElementById('easy-download-btn');
+        let image = new Image();
+        image.src = 'Images/Speed Training/Easy Mode Champion.png';
+        image.onload = function () {
+            drawImage();
+        }
+        textWidth = ctx.measureText(username).width;
+        function drawImage() {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.font = '50px Maven Pro';
+            ctx.fillStyle = '#FFFFFF';
+            ctx.textAlign = 'center';
+            ctx.fillText(username, canvas.width/2, 360);
+        }
+        downloadBtn.addEventListener('click', function () {
+            downloadBtn.href = canvas.toDataURL('image/png');
+            downloadBtn.download = 'EMC Certificate - ' + username;
+        })
+    } 
 
     // Standard mode
     let standardquestions = ['Fill in the blanks, and concatenate string1 and string3 such that the output of the print statement is "HelloWorld". (You do not need to put spacings between the concatenation) <br><br>string1 = "Hello"<br>string2 = "Python"<br>\
@@ -568,6 +597,7 @@ $(document).ready(function () {
                 let totalallocatedsec = standardmin * 60 + standardsec;
                 let unusedallocatedsec = parseInt($("#standardminute").text()) * 60 + parseInt($("#standardsecond").text())
                 let timetaken = totalallocatedsec - unusedallocatedsec;
+                console.log(timetaken);
                 Swal.fire({
                     title: 'You got it wrong!',
                     text: "Correct Answer: " + answer,
@@ -611,6 +641,32 @@ $(document).ready(function () {
         $("#standardsecresult").text(totalseconds);
         if ($("#standardpoints").text() == '25000') {
             $(".full-marks").slideDown("slow");
+            $("#fullmarkscertificate-standard").slideDown("slow");
+            createStandardCertificate();
         }
     }
+    
+    function createStandardCertificate() {
+        $("#fullmarkscertificate-standard").html('<br><canvas id="standard-canvas" height="600px" width="800px"></canvas><br><a id="standard-download-btn"><u>Download</u></a>')
+        let canvas = document.getElementById('standard-canvas');
+        let ctx = canvas.getContext('2d');
+        let downloadBtn = document.getElementById('standard-download-btn');
+        let image = new Image();
+        image.src = 'Images/Speed Training/Standard Mode Champion.png';
+        image.onload = function () {
+            drawImage();
+        }
+        textWidth = ctx.measureText(username).width;
+        function drawImage() {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.font = '50px Maven Pro';
+            ctx.fillStyle = '#29e';
+            ctx.textAlign = 'center';
+            ctx.fillText(username, canvas.width/2, 360);
+        }
+        downloadBtn.addEventListener('click', function () {
+            downloadBtn.href = canvas.toDataURL('image/png');
+            downloadBtn.download = 'SMC Certificate - ' + username;
+        })
+    } 
 })

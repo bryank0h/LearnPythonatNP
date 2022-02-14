@@ -6,6 +6,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="CSS/style.css">
     </head>   
     <body>
@@ -59,7 +62,8 @@
                     </ol>
                 </div>              
             </nav>
-            <p>Completed chapters will be marked green.</p>       
+            <p>Completed chapters will be marked green.</p> 
+            <button style="cursor: pointer;" id="resetcompletion">Reset Completion</button>      
         </header>
         <section id="chapter1" class="content" style="display: none;">
             <br>
@@ -151,7 +155,7 @@
             <img src="Images/Tutorial/chapter1/variable2.png">
             <img src="Images/Tutorial/chapter1/variable2result.png">
             <br><br><br>
-            <button>End of Chapter 1. Click here to mark Chapter 1 as complete!</button>
+            <button id="chapter1complete">End of Chapter 1. Click here to mark Chapter 1 as complete!</button>
         </section>
         <section id="chapter2_1" class="content" style="display: none;">
             <br>
@@ -247,7 +251,7 @@
                 <button id="chapter2_1-question1-submit" type="submit">Submit</button><br><br>
             </section>
             <br><br><br>
-            <button>End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
+            <button id="chapter2-1complete">End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
         </section>
         <section id="chapter2_2" class="content" style="display: none;">
             <br>
@@ -265,7 +269,7 @@
             <p>After defining a function, you can use the code that you have defined in your function by calling for it. Simply type the name of the function, along with the required parameters in the parenthesis.</p>
             <img src="Images/Tutorial/chapter2.2/functioncall.png">
             <br><br><br>
-            <button>End of Chapter 2.2 . Click here to mark Chapter 2.2 as complete!</button>
+            <button id="chapter2-2complete">End of Chapter 2.2 . Click here to mark Chapter 2.2 as complete!</button>
         </section>
         <section id="chapter2_3" class="content" style="display: none;">
             <br>
@@ -327,9 +331,9 @@
                 Hence, programmers make use of a <b>Debugger</b>, a program that allows stepping through code <b>line by line</b> in the same order of execution, and showing what values are stored in variables each step.
             </p>
             <br><br><br>
-            <button>End of Chapter 2.3 . Click here to mark Chapter 2.3 as complete!</button>
+            <button id="chapter2-3complete">End of Chapter 2.3 . Click here to mark Chapter 2.3 as complete!</button>
         </section>
         
-        <script src="Javascript/tutorial.js" async></script>
+        <script src="Javascript/tutorial.js" defer></script>
     </body>
 </html>

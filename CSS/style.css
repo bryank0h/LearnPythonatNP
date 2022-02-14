@@ -1,6 +1,14 @@
 html {
-    font-family: sans-serif;
+    font-family: Open Sans, sans-serif, monospace;
     color: white;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h2, h3, h4 {
+    font-family: Maven Pro, Open Sans, sans-serif, monospace;
 }
 
 /* Styling for index.html */
@@ -918,8 +926,9 @@ html {
 }
 
 .Speed-Training > body > header > nav button {
-    width: 200px;
-    padding: 17px 70px;
+    font-size: large;
+    width: 230px;
+    padding: 20px 70px;
     margin: 20px;
     border: 2.5px solid rgb(69, 69, 69);
     transition: .165s ease-in;
@@ -1050,6 +1059,21 @@ html {
     font-size: x-large;
 }
 
+.Speed-Training > body > #easymode > #easy-results > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Speed-Training > body > #easymode > #easy-results > div canvas {
+    border: 1px solid black;
+}
+
+.Speed-Training > body > #easymode > #easy-results > div a {
+    cursor: pointer;
+    color: blue;
+}
+
 .Speed-Training > body > #standardmode > #standard-instructions button {
     padding: 8px 35px;
     cursor: pointer;
@@ -1092,6 +1116,21 @@ html {
 .Speed-Training > body > #standardmode > #standard-results {
     font-weight: bolder;
     font-size: x-large;
+}
+
+.Speed-Training > body > #standardmode > #standard-results > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Speed-Training > body > #standardmode > #standard-results > div canvas {
+    border: 1px solid black;
+}
+
+.Speed-Training > body > #standardmode > #standard-results > div a {
+    cursor: pointer;
+    color: blue;
 }
 
 @media only screen and (max-width: 1300px) {
