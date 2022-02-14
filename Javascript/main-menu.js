@@ -18,6 +18,9 @@ $(document).ready(function () {
     })
 
     function PhotoChange(photos, number) {
+        $("a").css("display", "none");
+        $("button").css("display", "none");
+        $("#change-picture").css("display", "none");
         url = photos[number].urls.small;
         console.log(url);
         Swal.fire({
@@ -81,12 +84,12 @@ $(document).ready(function () {
                         title: 'Your profile picture has been changed!',
                         text: 'The page will reload. Please wait so that the changes are reflected. If changes are not reflected, re-login again and the profile picture will be updated.',
                         icon: 'success',
-                        timer: 7000,
+                        timer: 10000,
                         timerProgressBar: true,
                         showConfirmButton: false
                     })
                     .then(function () {
-                        window.location.replace("main-menu.html");
+                        window.location.reload();
                     })
                 });
             } else if (answer.dismiss === Swal.DismissReason.cancel) {
@@ -96,6 +99,10 @@ $(document).ready(function () {
                     number += 1;
                 }
                 PhotoChange(photos, number);
+            } else {
+                $("a").css("display", "");
+                $("button").css("display", "");
+                $("#change-picture").css("display", "");
             }
         })
     }
