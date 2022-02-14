@@ -72,4 +72,8 @@ $(document).ready(function() {
             });
         }
     })
+    $("#attribution").click(function(e) {
+        e.preventDefault();
+        window.open('https://github.com/bryank0h/LearnPythonatNP', '_blank');
+    })
 });

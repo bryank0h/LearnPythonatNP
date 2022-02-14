@@ -198,7 +198,7 @@ $(document).ready(function () {
     $("#begin-easy").click(function (e) {
         $("#easy-instructions").slideUp("normal");
         while(true) {
-            number = Math.floor((Math.random() * (easyquestions.length - 1)) + 1);
+            number = Math.floor(Math.random() * easyquestions.length);
             repeatedflag = false;
             for (let i of randomquestions) {
                 if (i == number) {
@@ -453,7 +453,7 @@ $(document).ready(function () {
     $("#begin-standard").click(function (e) {
         $("#standard-instructions").slideUp("normal");
         while(true) {
-            number = Math.floor((Math.random() * (standardquestions.length - 1)) + 1);
+            number = Math.floor(Math.random() * standardquestions.length);
             repeatedflag = false;
             for (let i of randomquestions) {
                 if (i == number) {
