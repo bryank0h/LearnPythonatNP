@@ -248,14 +248,13 @@ $(document).ready(function () {
             let answer = "#easy" + easyanswers[randomquestions[i]];
             let points;
             if ($("#easy").attr("data-timesup") == "true") {
-                console.log("hello");
                 Swal.fire({
                     title: 'You\'ve exceeded the time!',
                     text: "It's okay! Just understand the concepts well and you'll make it some day!\nCorrect Answer: " + $(answer).text(),
                     icon: 'warning'
                 }).then(function () {
-                    $("#easy").data("timesup", "false");
-                    $("#standard").data("timesup", "false");
+                    $("#easy").attr("data-timesup", "false");
+                    $("#standard").attr("data-timesup", "false");
                     $(".minute").css("color", "black");
                     $(".second").css("color", "black");
                     $(".easyoption").removeAttr("style");
