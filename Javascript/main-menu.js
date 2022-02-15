@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $("#change-picture").click(function (e) {
         e.preventDefault(); 
-        let topics = ["food", "fruit", "fruits", "city", "plant", "animal", "animals", "cyberpunk", "ikea"]
+        let topics = ["food", "fruit", "fruits", "city", "plant", "animal", "animals", "cyberpunk", "ikea", "Nintendo", "coffee", "skyscraper"]
         let randompicnumber = Math.floor(Math.random() * topics.length);
         console.log(randompicnumber);
         let topic = topics[randompicnumber];
