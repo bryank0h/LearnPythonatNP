@@ -42,6 +42,7 @@ $(document).ready(function () {
     $("#submit").click(function (e) {
         if ($("form")[0].checkValidity()) {
             e.preventDefault(); 
+            $("#submit").hide();
             $("lottie-player").show();         
             let username = $("#username").val();
             let email = $("#email").val();
@@ -66,11 +67,13 @@ $(document).ready(function () {
                     if (response[i].email == email) {
                         catchflag = true;
                         $("#Email-error").show();
+                        $("#submit").show();
                         break;
                     }
                     else if (response[i].username == username) {
                         catchflag = true;
                         $("#Username-error").show();
+                        $("#submit").show();
                         break;
                     }
                 }

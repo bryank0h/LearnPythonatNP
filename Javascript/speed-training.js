@@ -1,6 +1,144 @@
 $(document).ready(function () {
     let userinfo = JSON.parse(localStorage.getItem('user1'));
     let username = userinfo.username;
+    const APIKEY = "61feb0fc6a79155501021811"
+
+    // Leaderboard
+    $("#easyleaderboard").click(function(e) {
+        $("#standard-table").hide();
+        $("#easy-table").show();
+    })
+
+    $("#standardleaderboard").click(function(e) {
+        $("#easy-table").hide();
+        $("#standard-table").show();
+    })
+
+    $("#leaderboard-button").click(function(e){
+        let settings;
+        if ($(this).text() == "Leaderboard"){
+            $("nav").hide();
+            $("header").slideUp("normal");
+            $("#leaderboard").show();
+            $("#leaderboard-button").text("Back");
+            $("#leaderboard-button").attr("class", "back");
+            settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://learnpythonatnp-b99e.restdb.io/rest/student",
+                "method": "GET",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": APIKEY,
+                    "cache-control": "no-cache"
+                },
+                "beforeSend": function() {
+                    $("#leaderboard-wait").css("display", "flex");
+                }
+            }
+        }
+        else {
+            $("nav").show();
+            $("header").slideDown("normal");
+            $("#leaderboard").hide();
+            $("#easy-table").hide();
+            $("#standard-table").hide();
+            $("#leaderboard-button").attr("class", "leaderboard");
+            $("#leaderboard-button").text("Leaderboard");
+        }
+        
+        $.ajax(settings).done(function (response) {  
+            console.log(response);
+            $("#leaderboard-wait").css("display", "none");
+            let content = "";
+            let userlist = [];
+            let points;
+            let timing;
+            for (let i = 0; i < response.length; i++) {
+                if (response[i].easy_points != null) {
+                    userlist.push(response[i]);
+                }
+                else {
+                    continue;
+                }
+            }
+            if (userlist.length > 1) {
+                userlist.sort(function(a, b) {
+                    let pointdifference = b.easy_points - a.easy_points;
+                    if (pointdifference == 0) {
+                        let first_timing_list = b.easy_time.split(":");
+                        let first_timing = parseFloat(first_timing_list[0] + "." + first_timing_list[1]);
+                        let second_timing_list = a.easy_time.split(":");
+                        let second_timing = parseFloat(second_timing_list[0] + "." + second_timing_list[1]);
+                        return second_timing - first_timing;
+                    }
+                    else {
+                        return pointdifference;
+                    } 
+                })
+            }
+            for (let i = 0; i < userlist.length; i++) {
+                let profilepicture;
+                if (userlist[i].profilepicture == 0) {
+                    profilepicture = "Images/Profile/pythonnull.png";
+                }
+                else {
+                    profilepicture = userlist[i].profilepicture;
+                }
+                points = userlist[i].easy_points;
+                timing = userlist[i].easy_time;
+                content = `${content}<tr id='${userlist[i]._id}'>
+                <td class="user"><img src="${profilepicture}" style="height: 80px;width: 80px;border: 1px solid black;border-radius: 100%;margin-right:20px;"> ${userlist[i].username}</td>
+                <td>${points}</td>
+                <td>${timing}</td>`
+            }
+            $("#easy-table > table tbody").html(content);
+
+            content = "";
+            userlist = [];
+            points = "";
+            timing = "";
+            for (let i = 0; i < response.length; i++) {
+                if (response[i].standard_points != null) {
+                    userlist.push(response[i]);
+                }
+                else {
+                    continue;
+                }
+            }
+            if (userlist.length > 1) {
+                userlist.sort(function(a, b) {
+                    let pointdifference = b.standard_points - a.standard_points;
+                    if (pointdifference == 0) {
+                        let first_timing_list = b.standard_time.split(":");
+                        let first_timing = parseFloat(first_timing_list[0] + "." + first_timing_list[1]);
+                        let second_timing_list = a.standard_time.split(":");
+                        let second_timing = parseFloat(second_timing_list[0] + "." + second_timing_list[1]);
+                        return second_timing - first_timing;
+                    }
+                    else {
+                        return pointdifference;
+                    }  
+                })
+            }
+            for (let i = 0; i < userlist.length; i++) {
+                let profilepicture;
+                if (userlist[i].profilepicture == 0) {
+                    profilepicture = "Images/Profile/pythonnull.png";
+                }
+                else {
+                    profilepicture = userlist[i].profilepicture;
+                }
+                points = userlist[i].standard_points;
+                timing = userlist[i].standard_time;
+                content = `${content}<tr id='${userlist[i]._id}'>
+                <td class="user"><img src="${profilepicture}" style="height: 80px;width: 80px;border: 1px solid black;border-radius: 100%;margin-right:20px;"> ${userlist[i].username}</td>
+                <td>${points}</td>
+                <td>${timing}</td>`
+            }
+            $("#standard-table > table tbody").html(content);
+        })
+    })
 
     // Timer settings
     let easymin = 0;
@@ -39,6 +177,7 @@ $(document).ready(function () {
         }
         $("nav").hide();
         $("#mainmenu").hide();
+        $("#leaderboard-button").hide();
         $("header").slideUp("normal", function() {
             $("#easymode").slideDown("normal");
         });
@@ -70,6 +209,7 @@ $(document).ready(function () {
         }
         $("nav").hide();
         $("#mainmenu").hide();
+        $("#leaderboard-button").hide();
         $("header").slideUp("normal", function() {
             $("#standardmode").slideDown("normal");
         });
@@ -103,6 +243,7 @@ $(document).ready(function () {
         $("#easy-results").slideUp("normal");
         $("nav").show();
         $("#mainmenu").show();
+        $("#leaderboard-button").show();
         $("header").slideDown("normal", function() {
             $(".content").slideUp("normal");
         });
@@ -111,7 +252,7 @@ $(document).ready(function () {
     // Timer
     function start() {
         pause();
-        interval = setInterval(timer, 20.7);
+        interval = setInterval(timer, 10.5);
     }
     function pause() {
         clearInterval(interval);
@@ -125,7 +266,7 @@ $(document).ready(function () {
     }
 
     function timer() { 
-        if ((millisecond -= 10) < 0 || (millisecond -= 10) == 0) {
+        if ((millisecond -= 10) < 0) {
             if (second != 0) {
                 millisecond = 1000;
                 second--;
@@ -351,7 +492,7 @@ $(document).ready(function () {
             totalseconds += t;
         }
         let totalminutes = 0;
-        if (totalseconds > 60) {
+        if (totalseconds >= 60) {
             totalminutes = Math.floor(totalseconds/60);
             totalseconds -= totalminutes * 60;
         }
@@ -365,6 +506,29 @@ $(document).ready(function () {
         }
         $("#easyminresult").text(totalminutes);
         $("#easysecresult").text(totalseconds);
+        var jsondata = {"username": userinfo.username,
+                        "email": userinfo.email,
+                        "password": userinfo.password,
+                        "easy_points": $("#easypoints").text(),
+                        "easy_time": totalminutes + ":" + totalseconds};
+        var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://learnpythonatnp-b99e.restdb.io/rest/student/" + userinfo._id,
+        "method": "PUT",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": APIKEY,
+            "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(jsondata)
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
         if ($("#easypoints").text() == '3000') {
             $(".full-marks").slideDown("slow");
             $("#fullmarkscertificate-easy").slideDown("slow");
@@ -624,7 +788,7 @@ $(document).ready(function () {
             totalseconds += t;
         }
         let totalminutes = 0;
-        if (totalseconds > 60) {
+        if (totalseconds >= 60) {
             totalminutes = Math.floor(totalseconds/60);
             totalseconds -= totalminutes * 60;
         }
@@ -638,6 +802,29 @@ $(document).ready(function () {
         }
         $("#standardminresult").text(totalminutes);
         $("#standardsecresult").text(totalseconds);
+        var jsondata = {"username": userinfo.username,
+                        "email": userinfo.email,
+                        "password": userinfo.password,
+                        "standard_points": $("#standardpoints").text(),
+                        "standard_time": totalminutes + ":" + totalseconds};
+        var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://learnpythonatnp-b99e.restdb.io/rest/student/" + userinfo._id,
+        "method": "PUT",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": APIKEY,
+            "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(jsondata)
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
         if ($("#standardpoints").text() == '25000') {
             $(".full-marks").slideDown("slow");
             $("#fullmarkscertificate-standard").slideDown("slow");

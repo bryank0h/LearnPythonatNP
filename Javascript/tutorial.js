@@ -222,6 +222,8 @@ $(document).ready(function () {
     })
     $("#resetcompletion").click(function(e) {
         e.preventDefault();
+        $("nav").hide();
+        $("#resetting-message").show();
         let jsondata = {"username": userinfo.username,
                         "email": userinfo.email,
                         "password": userinfo.password,

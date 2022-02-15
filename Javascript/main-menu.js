@@ -8,7 +8,11 @@ $(document).ready(function () {
 
     $("#change-picture").click(function (e) {
         e.preventDefault(); 
-        let url = "https://api.unsplash.com/search/photos?query=food&orientation=squarish&client_id=OYSECy1VZgmHT8HWdZaWG3h_SMafMtVndRzTn6x9djg";
+        let topics = ["food", "fruit", "fruits", "city", "plant", "animal", "animals", "cyberpunk", "ikea"]
+        let randompicnumber = Math.floor(Math.random() * topics.length);
+        console.log(randompicnumber);
+        let topic = topics[randompicnumber];
+        let url = `https://api.unsplash.com/search/photos?query=${topic}&orientation=squarish&client_id=OYSECy1VZgmHT8HWdZaWG3h_SMafMtVndRzTn6x9djg`;
         let photos = "";
         fetch(url).then(response => response.json())
         .then(function (data) {
@@ -18,7 +22,7 @@ $(document).ready(function () {
     })
 
     function PhotoChange(photos, number) {
-        $("a").css("display", "none");
+        $(".Menu-option").css("display", "none");
         $("button").css("display", "none");
         $("#change-picture").css("display", "none");
         url = photos[number].urls.small;
@@ -37,6 +41,7 @@ $(document).ready(function () {
             denyButtonText: 'Leave'         
         }).then((answer) => {
             if (answer.isConfirmed) {
+                $("#changing-message").show();
                 let jsondata = {
                     "username": userinfo.username,
                     "email": userinfo.email,
@@ -100,7 +105,7 @@ $(document).ready(function () {
                 }
                 PhotoChange(photos, number);
             } else {
-                $("a").css("display", "");
+                $(".Menu-option").css("display", "");
                 $("button").css("display", "");
                 $("#change-picture").css("display", "");
             }

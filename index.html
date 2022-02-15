@@ -45,8 +45,12 @@
                     <input type="password" id="password" name="password" required />
                 </div>
                 <br><br>
-                <input type="submit" id="submit" value="Login" /><br>
                 <p id="Error" style="display: none;">Invalid credentials. Please try again.</p>
+                <div id="submit-wait" style="display: none; justify-content: center;">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368);"  loop  autoplay></lottie-player>
+                </div>
+                <input type="submit" id="submit" value="Login" /><br>
             </form>
             <br>           
         </section>
@@ -54,7 +58,7 @@
             <p>Don't have an account yet? Create one today!</p>
             <a href="create-account.html">Create an Account</a>
             <br><br><br><br><br>
-            <p id="attribution" style="font-size:small; cursor: pointer;" target="_blank">Website created by <b>Bryan Koh</b> & <b>Lee Wei Jun Nicholas</b></p>
+            <p id="attribution" style="font-size:small; cursor: pointer; position: relative; top: 24px;" target="_blank">Website created by <b>Bryan Koh</b> & <b>Lee Wei Jun Nicholas</b></p>
         </section>
         <script src="Javascript/index.js" defer></script>
     </body>

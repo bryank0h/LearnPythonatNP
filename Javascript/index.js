@@ -18,9 +18,11 @@ $(document).ready(function() {
     }); 
 
     $("input").focus(function (e) {
-        $(this).css("background-color", "white");       
+        $(this).css("background-color", "white");  
+        $("#submit").css("background-color", "rgb(69, 69, 69)");     
     })  
-    $("input") .focusout(function (e) {
+    $("input").focusout(function (e) {
+        $("#Error").hide();
         if ($(this).val() != "") {
             $(this).css("background-color", "white");
         }
@@ -28,14 +30,13 @@ $(document).ready(function() {
             $(this).css("background-color", "rgba(255,255,255,0.4)");
         }
     }) 
-
-    $("input").focus(function() {
-        $("#submit").css("background-color", "rgb(69, 69, 69)");
-    })
     
     $("#submit").click(function (e) {
         if ($("form")[0].checkValidity()) {
             e.preventDefault();
+            $("#Error").hide();
+            $("#submit").hide();
+            $("#submit-wait").css("display","flex");
             let email = $("#email").val();
             let password = $("#password").val();
             let settings = {
@@ -66,7 +67,9 @@ $(document).ready(function() {
                     }
                 }
                 if (successflag == false) {
+                    $("#submit-wait").hide();
                     $("#Error").show();
+                    $("#submit").show();
                     $("#submit").prop("disabled", false);
                 }
             });

@@ -26,6 +26,7 @@
         };
         </script>
         <button id="mainmenu" onclick="back()">Return to Main Menu</button>
+        <button id="leaderboard-button" class="leaderboard" style="margin-left:4px;">Leaderboard</button>
         <script>
             function back() {
                 window.location.assign("main-menu.html");
@@ -47,10 +48,45 @@
                 <figcaption>GIF from <a target="_blank" href="https://tenor.com/view/road-runner-coyote-wile-e-coyote-chasing-hunting-gif-18107569">Tenor</a></figcaption>
             </figure>
         </header>
+        <section id="leaderboard" style="display: none;">
+            <br>
+            <button id="easyleaderboard">Easy Mode</button>
+            <button id="standardleaderboard">Standard Mode</button>
+            <br>
+            <p><b>Choose a mode to view the respective leaderboard. The leaderboard is ranked according to the number of points earned, followed by the timing.<br>
+                You can be the fastest but getting all of the questions wrong is not considered the best now, is it?</b></p>
+            <section id="easy-table" style="display: none;">
+                <h2>Easy Mode</h2>
+                <table>
+                    <thead>
+                        <th>User</th>
+                        <th>Points</th>
+                        <th>Timing</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <section id="standard-table" style="display: none;">
+                <h2>Standard Mode</h2>
+                <table>
+                    <thead>
+                        <th>User</th>
+                        <th>Points</th>
+                        <th>Timing</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <div id="leaderboard-wait" style="display: none; justify-content:center;">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368);"  loop  autoplay></lottie-player>
+            </div>
+            <br>
+        </section>
         <section id="easymode" class="content" style="display: none;">
             <button class="return">Stop Training</button><br><br>
             <h2>Easy Mode</h2>
-            <section id="easy-instructions">
+            <section id="easy-instructions" class="instructions">
                 <h3>Instructions:</h3>
                 <ol>
                     <li>There are 10 MCQ questions.</li>
@@ -61,7 +97,7 @@
                     <li>If you get the maximum points (3000 points), a certificate will be shown on screen for you to download!</li>
                     <li>Do your best!</li>
                 </ol>
-                <button id="begin-easy">Begin</button>
+                <button id="begin-easy" class="begin-button">Begin</button>
             </section>
             <section id="easy-content" class="quiz-content" style="display: none;">
                 <section class="row">
@@ -101,7 +137,7 @@
         <section id="standardmode" class="content" style="display: none;">
             <button class="return">Stop Training</button><br><br>
             <h2>Standard Mode</h2>
-            <section id="standard-instructions">
+            <section id="standard-instructions" class="instructions">
                 <h3>Instructions:</h3>
                 <ol>
                     <li>There are 10 Fill-in-the-Blank questions.</li>
@@ -113,7 +149,7 @@
                     <li>If you get the maximum points (25000 points), a certificate will be shown on screen for you to download!</li>
                     <li>Do your best!</li>
                 </ol>
-                <button id="begin-standard">Begin</button>
+                <button id="begin-standard" class="begin-button">Begin</button>
             </section>
             <section id="standard-content" class="quiz-content"  style="display: none;">
                 <section class="row">

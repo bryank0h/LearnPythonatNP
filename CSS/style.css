@@ -341,10 +341,6 @@ h2, h3, h4 {
     transform: scale(1);
     transition: .165s ease-in; 
 }
-.Create-account > body > #Create-form > lottie-player {
-    position: relative;
-    bottom: 20px;
-}
 
 .Create-account > body > #More-spacing {
     height: 100px;
@@ -635,7 +631,7 @@ h2, h3, h4 {
 .Tutorial > body > button {
     padding: 8px 17px;
     border: 5px solid rgb(69, 69, 69);
-    border-radius: 5px;
+    border-radius: 50px;
     transition: .2s ease-in;   
 }
 
@@ -920,7 +916,7 @@ h2, h3, h4 {
 .Speed-Training > body > button {
     padding: 8px 17px;
     border: 5px solid rgb(69, 69, 69);
-    border-radius: 5px;
+    border-radius: 50px;
     transition: .2s ease-in;   
 }
 
@@ -929,6 +925,20 @@ h2, h3, h4 {
     transform: scale(1.05);
     border-color: rgb(53, 121, 255);
     transition: .2s ease-in;  
+}
+
+.Speed-Training > body > .leaderboard:hover {
+    cursor: pointer; 
+    transform: scale(1.05);
+    border-color: rgb(255, 205, 39);
+    transition: .2s ease-in;
+}
+
+.Speed-Training > body > .back:hover {
+    cursor: pointer; 
+    transform: scale(1.05);
+    border-color: rgb(255, 55, 41);
+    transition: .2s ease-in; 
 }
 
 .Speed-Training > body > header {
@@ -952,6 +962,7 @@ h2, h3, h4 {
     padding: 20px 70px;
     margin: 20px;
     border: 2.5px solid rgb(69, 69, 69);
+    border-radius: 2px;
     transition: .165s ease-in;
 }
 
@@ -984,24 +995,84 @@ h2, h3, h4 {
     font-size: small;
 }
 
-.Speed-Training > body > .content > button {
-    padding: 10px;
+.Speed-Training > body > #leaderboard button {
+    padding: 10px 12px;
+    margin-right: 4.5px;
+    cursor: pointer;
+    border: 0px;
+    transition: .2s ease-in;
+}
+
+.Speed-Training > body > #leaderboard button:hover {
+    background-color: white;
+    transition: .2s ease-in;
+    transform: scale(1.05);
+}
+
+.Speed-Training > body > #leaderboard > section > table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.Speed-Training > body > #leaderboard  > section > table thead th, .Speed-Training > body > #leaderboard > section > table tbody td {
+    border: 1.5px solid black;
+    padding: 8px;
+}
+
+.Speed-Training > body > #leaderboard > section > table tbody .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Speed-Training > body > #leaderboard > section > table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.348);
+}
+
+.Speed-Training > body > #leaderboard  > section > table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(90, 158, 255);
+    color: white;
 }
 
 .Speed-Training > body > .content > button {
+    padding: 10px;
+    border: 0px;
     cursor: pointer;
+    transition: .165s ease-in;
+}
+
+.Speed-Training > body > .content > button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    transition: .2s ease-in;
 }
 
 .Speed-Training > body > .content > h2 {
     margin-top: 2px;
 }
 
-.Speed-Training > body > #easymode > #easy-instructions button {
-    padding: 8px 35px;
+.Speed-Training > body > .content > .instructions > .begin-button {
+    font-size: larger;
+    color: white;
+    background-color: rgb(50, 179, 73);
     cursor: pointer;
+    transition: .165s ease-in;
+    border: 0px;
+    padding: 8px 35px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.Speed-Training > body > .content > .instructions > .begin-button:hover {
+    background-color: rgb(28, 129, 47);
+    transform: scale(1.04);
+    transition: .2s ease-in;
 }
 
 .Speed-Training > body > #easymode > #easy-content {
@@ -1093,14 +1164,6 @@ h2, h3, h4 {
 .Speed-Training > body > #easymode > #easy-results > div a {
     cursor: pointer;
     color: blue;
-}
-
-.Speed-Training > body > #standardmode > #standard-instructions button {
-    padding: 8px 35px;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
 }
 
 .Speed-Training > body > #standardmode > #standard-content > #standardquestionsection {
