@@ -11,7 +11,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="CSS/style.css">
     </head>   
-    <body><a href="index.html">Back</a>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            if (localStorage.getItem('user1') != null) {
+                Swal.fire(
+                    'Logged in!',
+                    'You are already logged in :)',
+                    'success'
+                    ).then(function () {
+                        window.location.assign("main-menu.html");
+                    }) 
+            }
+        </script>
+        <a href="index.html">Back</a>
         <h1>Create an Account</h1>
         <div></div>
         <section id="Create-form">
@@ -47,9 +61,6 @@
             <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="display: none; width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368);"  loop  autoplay></lottie-player>
         </section>
         <div id="More-spacing"></div>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="Javascript/create-account.js" defer></script>
     </body>
 </html>

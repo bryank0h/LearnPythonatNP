@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="Report">
+    <head>
+        <meta charset="utf-8">
+        <title>Report a Problem</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Libraries/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>   
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            if (localStorage.getItem('user1') == null) {
+            Swal.fire(
+                'Sorry',
+                'It appears that you are not logged in.',
+                'error'
+            ).then(function () {
+                window.location.replace("index.html");
+            })  
+        };
+        </script>
+        
+        <a href="main-menu.html">Back</a>
+        <h1>Report a Problem</h1>
+        <div></div>
+        <section id="Report-form">
+            <form id="Report" method="post">
+                <p>Username: <span id="username"></span></p>
+                <p>Email: <span id="email"></span></p>
+                <div class="Input-box">
+                    <p>Please state the problem:</p>
+                    <textarea id="problem" name="problem" rows="6" cols="50" required></textarea>
+                </div>
+                <input type="submit" id="submit" value="Report" /><br>
+            </form>
+        </section>
+        <script src="Javascript/report.js" defer></script>
+    </body>
+</html>
