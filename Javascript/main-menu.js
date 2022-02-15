@@ -25,6 +25,7 @@ $(document).ready(function () {
         $(".Menu-option").css("display", "none");
         $("button").css("display", "none");
         $("#change-picture").css("display", "none");
+        $("#report").hide();
         url = photos[number].urls.small;
         console.log(url);
         Swal.fire({
@@ -108,6 +109,7 @@ $(document).ready(function () {
                 $(".Menu-option").css("display", "");
                 $("button").css("display", "");
                 $("#change-picture").css("display", "");
+                $("#report").show();
             }
         })
     }

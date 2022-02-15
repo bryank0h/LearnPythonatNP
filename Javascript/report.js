@@ -20,7 +20,7 @@ $(document).ready(function() {
         if ($("form")[0].checkValidity()) {
             Swal.fire(
                 'The issue has been reported.<br>Thank you!',
-                '',
+                `Issue reported:<br>${$("textarea").val()}`,
                 'success'
             ).then(function () {
                 window.location.assign("main-menu.html");

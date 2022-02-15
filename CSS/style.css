@@ -1356,6 +1356,31 @@ h2, h3, h4 {
     transition: .165s ease-in; 
 }
 
+.Report > body h2{
+    margin-left: 40px;
+}
+
+.Report > body > #contactus {
+    display: flex;
+    margin-left: 40px;
+    position: relative;
+    bottom: 17px;
+}
+
+.Report > body > #contactus div {
+    margin-right: 45px;
+}
+
+
+.Report > body > #contactus div a {
+    text-decoration: none;
+    color: rgb(255, 196, 0)
+}
+
+.Report > body > #contactus div a:hover {
+    color:rgb(255, 232, 156);
+}
+
 @media only screen and (max-width: 1300px) {
     .Report {
         background: url("../Images/Backgrounds/pythonnormal2.png");
