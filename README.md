@@ -114,7 +114,7 @@ Used to store important data of users.
 **10. Download Certificates**
    1. In main menu page, click on "Download Certificates".
    2. Ensure that all internal links are disabled and not shown on the website, and a lottie animation is shown indicating to wait.
-   3. Once complete, popup will appear for the user to download certificate(s).
+   3. Once complete, popup will appear for the user to download certificate(s). If user has only scored maximum points for easy mode, only the certificate for easy mode is available for download. If user has only scored maximum points for standard mode, only the certificate for standard mode is available for download. If user has scored maximum points for both modes, both certificates are available for download. If user has not scored maximum points for any difficulty, no certificates will be available for download.
    4. Click "Download".
    5. Ensure that certificate is downloaded properly.
 
