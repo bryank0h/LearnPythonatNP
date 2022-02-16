@@ -217,7 +217,7 @@ Used to store important data of users.
    4. Ensure that a popup appears indicating that the page has to reload as a session has been completed previously.
 
 **Other validations**
-Ensure that there are no broken links, and all external links are opened on a new tab.
+- Ensure that there are no broken links, and all external links are opened on a new tab.
   
 ## Credits
 
