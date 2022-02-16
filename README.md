@@ -3,9 +3,9 @@
 
 For this assignment, we will be working on a website which educates and teaches students in Ngee Ann Polytechnic about the fundamentals/basics of Python. Our goal is set out to enhance and gamify the experience of learning the Python language, while being able to hone their skills via our web application. Our target audience would be to benefit students of Information Technology, or any related courses that will make use of the language.
 
-Students would be able to use their email to log in to our website. Students get to use two modes: Tutorial Mode and Speed Training Mode.<br>
+Students would be able to use their email to log in to our website or create an account with an unregistered email. Students get to use two modes: Tutorial Mode and Speed Training Mode.<br>
 In Tutorial Mode, students get to learn the different basic topics at their own pace. Their progress is also saved and completed chapters are highlighted green.<br>
-In Speed Training Mode, it is assumed that Students have already aquired the basic knowledge and this is the mode to challenge themselves. They have an option of two difficulties, easy and standard. Easy mode will be in the form of MCQ questions, while standard mode will be in the form of short Fill-in-the-Blank coding questions. The students' task will be to answer a set of 10 randomized questions correctly under a set time. They will also earn points depending on the time spent for each question (Points become less when more time is used to answer questions).
+In Speed Training Mode, it is assumed that students have already aquired the basic knowledge and this is the mode to challenge themselves. They have an option of two difficulties, easy and standard. Easy mode will be in the form of MCQ questions, while Standard mode will be in the form of Fill-in-the-Blank coding questions. The students' task will be to answer a set of 10 randomized questions correctly under a set time. They will also earn points depending on the time spent for each question (Points become less when more time is used to answer the questions).
 
 A certificate will be presented upon completion of either difficulty in Speed Training Mode.
 
@@ -222,5 +222,13 @@ Ensure that there are no broken links, and all external links are opened on a ne
 ## Credits
 
 ### Media
+- Blue Python logo downloaded from https://www.pinclipart.com/downpngs/ibRbRmJ_python-programming-language-computer-programming-computer-python-logo/
+- Original Python logo downloaded from https://en.wikipedia.org/wiki/Python_(programming_language)#/media/File:Python-logo-notext.svg
+- Gray fluid background frame design element downloaded from https://www.rawpixel.com/image/2339978/free-illustration-png-frame-pattern-abstract
+- GIF on "Speed Training" page obtained from https://tenor.com/view/road-runner-coyote-wile-e-coyote-chasing-hunting-gif-18107569
+- Image on "Report a Problem" page obtained from https://www.ac-illust.com/main/detail.php?id=22420214&word=%E7%8C%AB%E3%80%80%E5%95%8F%E9%A1%8C%E3%81%AA%E3%81%97&searchId=3053327208
+- Easy Mode Certificate template obtained from https://templates.office.com/en-sg/wave-border-employee-excellence-award-tm03460503
+- Standard Mode Certificate template obtained from https://templates.office.com/en-sg/confetti-thank-you-certificate-tm03444065
 
 ### Fonts
+- *Maven Pro* and *Open Sans* obtained at https://fonts.google.com/
