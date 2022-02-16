@@ -6,7 +6,7 @@ $(document).ready(function () {
         $("#profile-picture").attr('src', userinfo.profilepicture);
     }
 
-    $("#change-picture").click(function (e) {
+    $("#change-picture, #profile-picture").click(function (e) {
         e.preventDefault(); 
         let topics = ["food", "fruit", "fruits", "city", "plant", "animal", "animals", "cyberpunk", "ikea", "Nintendo", "coffee", "skyscraper"]
         let randompicnumber = Math.floor(Math.random() * topics.length);

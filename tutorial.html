@@ -36,25 +36,25 @@
             <h2>Select a topic from below:</h2>
             <nav>
                 <div class="column">
-                    <ol id="lesson1">
+                    <ol id="lesson1" class="shadow">
                         <h3>Chapter 1 : The Beginning!</h3>
                         <li>Introduction</li>
                         <li>Variables/Identifiers & Comments</li>
                         <li>Values & Data Types</li>
                         <li>Print</li>
                     </ol>
-                    <ol id="lesson2_1">
+                    <ol id="lesson2_1" class="shadow">
                         <h3>Chapter 2.1 : Operators & Interactivity</h3>
                         <li>4 Operators</li>
                         <li>Input by User</li>
                         <li>Import Math</li>
                     </ol>
-                    <ol id="lesson2_2">
+                    <ol id="lesson2_2" class="shadow">
                         <h3>Chapter 2.2 : Functions</h3>
                         <li>Defining a Function</li>
                         <li>Calling a Function</li>
                     </ol>
-                    <ol id="lesson2_3">
+                    <ol id="lesson2_3" class="shadow">
                         <h3>Chapter 2.3 : String Formatting & Debugging</h3>
                         <li>Escape Sequence</li>
                         <li>String Formatting</li>
@@ -62,6 +62,10 @@
                     </ol>
                 </div>              
             </nav>
+            <p id="100percent" style="display:none;text-align:center;font-size:larger;"><b>Congratulations! 100% Completion!</b><br><br>
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_orshrv.json"  background="transparent"  speed="0.4"  style="display:block; margin-left: auto; margin-right:auto; width: 200px; height: 200px; position: relative; bottom: 17px;"  loop  autoplay></lottie-player>
+            </p>
             <p id="resetting-message" style="display:none;text-align:center;">Resetting...<br></p>
             <p>Completed chapters will be marked green.</p> 
             <button style="cursor: pointer;" id="resetcompletion">Reset Completion</button>      
@@ -156,7 +160,8 @@
             <img src="Images/Tutorial/chapter1/variable2.png">
             <img src="Images/Tutorial/chapter1/variable2result.png">
             <br><br><br>
-            <button id="chapter1complete">End of Chapter 1. Click here to mark Chapter 1 as complete!</button>
+            <button class="chaptercomplete" id="chapter1complete">End of Chapter 1. Click here to mark Chapter 1 as complete!</button>
+            <p class="update-status" style="display: none; text-align: center;">Updating status... Please wait...</p>
         </section>
         <section id="chapter2_1" class="content" style="display: none;">
             <br>
@@ -252,7 +257,8 @@
                 <button id="chapter2_1-question1-submit" type="submit">Submit</button><br><br>
             </section>
             <br><br><br>
-            <button id="chapter2-1complete">End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
+            <button class="chaptercomplete" id="chapter2-1complete">End of Chapter 2.1 . Click here to mark Chapter 2.1 as complete!</button>
+            <p class="update-status" style="display: none; text-align: center;">Updating status... Please wait...</p>
         </section>
         <section id="chapter2_2" class="content" style="display: none;">
             <br>
@@ -270,7 +276,8 @@
             <p>After defining a function, you can use the code that you have defined in your function by calling for it. Simply type the name of the function, along with the required parameters in the parenthesis.</p>
             <img src="Images/Tutorial/chapter2.2/functioncall.png">
             <br><br><br>
-            <button id="chapter2-2complete">End of Chapter 2.2 . Click here to mark Chapter 2.2 as complete!</button>
+            <button class="chaptercomplete" id="chapter2-2complete">End of Chapter 2.2 . Click here to mark Chapter 2.2 as complete!</button>
+            <p class="update-status" style="display: none; text-align: center;">Updating status... Please wait...</p>
         </section>
         <section id="chapter2_3" class="content" style="display: none;">
             <br>
@@ -332,7 +339,8 @@
                 Hence, programmers make use of a <b>Debugger</b>, a program that allows stepping through code <b>line by line</b> in the same order of execution, and showing what values are stored in variables each step.
             </p>
             <br><br><br>
-            <button id="chapter2-3complete">End of Chapter 2.3 . Click here to mark Chapter 2.3 as complete!</button>
+            <button class="chaptercomplete" id="chapter2-3complete">End of Chapter 2.3 . Click here to mark Chapter 2.3 as complete!</button>
+            <p class="update-status" style="display: none; text-align: center;">Updating status... Please wait...</p>
         </section>
         
         <script src="Javascript/tutorial.js" defer></script>

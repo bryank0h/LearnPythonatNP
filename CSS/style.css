@@ -448,6 +448,10 @@ h2, h3, h4 {
     top: 20px;
 }
 
+.Main-Menu > body > header #Greeting-left h1 span img:hover {
+    cursor: pointer;
+}
+
 .Main-Menu > body > header #Greeting-left h2 {
     position: relative;
     bottom: 90px;
@@ -559,6 +563,7 @@ h2, h3, h4 {
 
 .Main-Menu > body > a:hover {
     background-color: rgba(255, 30, 0, 0.627);
+    border-color: rgb(55, 0, 0);
     transition: .2s ease-in;
 }
 
@@ -784,6 +789,26 @@ h2, h3, h4 {
     margin-left: auto;
     margin-right: auto;
 }
+
+.Tutorial > body > .content > .chaptercomplete {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    bottom: 9px;
+    padding: 8px 17px;
+    border: 5px solid rgb(69, 69, 69);
+    border-radius: 50px;
+    transition: .2s ease-in;   
+}
+
+.Tutorial > body > .content > .chaptercomplete:hover {
+    cursor: pointer; 
+    transform: scale(1.05);
+    border-color: rgb(31, 208, 63);
+    transition: .2s ease-in;  
+}
+
 
 .Tutorial > body > #chapter1 #chapter1-shortcuts {
     width: 450px;
@@ -1297,7 +1322,7 @@ h2, h3, h4 {
 .Report > body > h1 {
     color: white;
     text-align: center;
-    background-color: rgb(0, 149, 255);
+    background-color: rgb(255, 71, 71);
     padding: 20px;
     margin: 30px;
     border: 2px solid black;
@@ -1356,13 +1381,15 @@ h2, h3, h4 {
     transition: .165s ease-in; 
 }
 
-.Report > body h2{
+.Report > body h2 {
     margin-left: 40px;
 }
 
 .Report > body > #contactus {
     display: flex;
+    justify-content: center;
     margin-left: 40px;
+    padding: 20px;
     position: relative;
     bottom: 17px;
 }
@@ -1371,6 +1398,9 @@ h2, h3, h4 {
     margin-right: 45px;
 }
 
+.Report > body > #contactus > div > p {
+    color:rgb(46, 168, 255);
+}
 
 .Report > body > #contactus div a {
     text-decoration: none;
@@ -1438,4 +1468,10 @@ h2, h3, h4 {
         background-repeat: no-repeat;
         background-attachment: fixed;       
     }
+}
+
+
+/* Shadow effects for some boxes */
+.shadow {
+    box-shadow: 1px 1px 7px rgb(88, 88, 88);
 }

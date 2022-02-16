@@ -1,42 +1,51 @@
 $(document).ready(function () {
     const APIKEY = "61feb0fc6a79155501021811"
     let userinfo = JSON.parse(localStorage.getItem('user1'));
+    let completionlist = [];
     try {
         if (userinfo.chapter1 != null) {
             if (userinfo.chapter1 == "1") {
                 $("#lesson1").css("background-color", "rgba(108, 255, 164, 0.633)");
                 $("#chapter1complete").hide();
+                completionlist.push(1);
             }
         }
     }
     catch (error) {}
     try {
-        if (userinfo.chapter2-1 != null) {
+        if (userinfo.chapter2_1 != null) {
             if (userinfo.chapter2_1 == "1") {
                 $("#lesson2_1").css("background-color", "rgba(108, 255, 164, 0.633)");
-                $("#chapter1complete").hide();
+                $("#chapter2-1complete").hide();
+                completionlist.push(1);
             }
         }
     }
     catch (error) {}
     try {
-        if (userinfo.chapter2-2 != null) {
+        if (userinfo.chapter2_2 != null) {
             if (userinfo.chapter2_2 == "1") { 
                 $("#lesson2_2").css("background-color", "rgba(108, 255, 164, 0.633)");
-                $("#chapter1complete").hide();
+                $("#chapter2-2complete").hide();
+                completionlist.push(1);
             }   
         }
     }
     catch (error) {}
     try {
-        if (userinfo.chapter2-3 != null) {
+        if (userinfo.chapter2_3 != null) {
             if (userinfo.chapter2_3 == "1") { 
                 $("#lesson2_3").css("background-color", "rgba(108, 255, 164, 0.633)");
-                $("#chapter1complete").hide();
+                $("#chapter2-3complete").hide();
+                completionlist.push(1);
             }    
         }
     }
     catch (error) {}
+
+    if (completionlist.length == 4) {
+        $("#100percent").show();
+    }
 
     $("#lesson1").click(function (e) {
         e.preventDefault();
@@ -114,6 +123,8 @@ $(document).ready(function () {
 
     $("#chapter1complete").click(function(e) {
         e.preventDefault();
+        $("button").hide();
+        $(".update-status").show();
         let jsondata = {"username": userinfo.username,
                         "email": userinfo.email,
                         "password": userinfo.password,
@@ -141,6 +152,8 @@ $(document).ready(function () {
     })
     $("#chapter2-1complete").click(function(e) {
         e.preventDefault();
+        $("button").hide();
+        $(".update-status").show();
         let jsondata = {"username": userinfo.username,
                         "email": userinfo.email,
                         "password": userinfo.password,
@@ -166,8 +179,11 @@ $(document).ready(function () {
             reloadpage()
         });
     })
+
     $("#chapter2-2complete").click(function(e) {
         e.preventDefault();
+        $("button").hide();
+        $(".update-status").show();
         let jsondata = {"username": userinfo.username,
                         "email": userinfo.email,
                         "password": userinfo.password,
@@ -193,8 +209,11 @@ $(document).ready(function () {
             reloadpage();
         });
     })
+
     $("#chapter2-3complete").click(function(e) {
         e.preventDefault();
+        $("button").hide();
+        $(".update-status").show();
         let jsondata = {"username": userinfo.username,
                         "email": userinfo.email,
                         "password": userinfo.password,
@@ -222,6 +241,7 @@ $(document).ready(function () {
     })
     $("#resetcompletion").click(function(e) {
         e.preventDefault();
+        $("#100percent").hide();
         $("nav").hide();
         $("#resetting-message").show();
         let jsondata = {"username": userinfo.username,
