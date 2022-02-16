@@ -38,28 +38,28 @@ In Speed Training mode, users can also view the leaderboard and see who are in t
 <img src="Images/README/report.png" width="300px;">
 
 ## Technologies Used
-- Adobe XD <br>
+- <a href="https://www.adobe.com/sg/products/xd.html">Adobe XD</a> <br>
 For creating a wireframe of the website.
 
-- Adobe Illustrator <br>
+- <a href="https://www.adobe.com/sg/products/illustrator.html">Adobe Illustrator</a> <br>
 Used to design the backgrounds of the website.
 
-- Visual Studio Code -> HTML, CSS & JavaScript <br>
+- <a href="https://code.visualstudio.com/">Visual Studio Code</a> -> HTML, CSS & JavaScript <br>
 Used to code the website.
 
-- jQuery <br>
+- <a href="https://jquery.com/">jQuery</a> <br>
 Used to simplify HTML document traversal, manipulation, event handling, animation and Ajax.
 
-- sweetalert2 <br>
+- <a href="https://sweetalert2.github.io/">sweetalert2</a> <br>
 Used for responsive and customizable popup boxes in the website.
 
-- Unsplash Image API <br>
+- <a href="https://unsplash.com/developers">Unsplash Image API</a> <br>
 Used for getting images based on the collections from Unsplash. This is used for the profile picture feature on the website.
 
-- LottieFiles <br>
+- <a href="https://lottiefiles.com/">LottieFiles</a> <br>
 Used for some animations in the website.
 
-- restdb.io <br>
+- <a href="https://restdb.io/">restdb.io</a> <br>
 Used to store important data of users.
 
 ## Testing 
