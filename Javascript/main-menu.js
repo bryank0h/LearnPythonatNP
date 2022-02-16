@@ -27,6 +27,7 @@ $(document).ready(function () {
         $("button").css("display", "none");
         $("#change-picture").css("display", "none");
         $("#report").hide();
+        $("#profile-picture").hide();
         url = photos[number].urls.small;
         console.log(url);
         Swal.fire({
@@ -111,52 +112,86 @@ $(document).ready(function () {
                 $("button").css("display", "");
                 $("#change-picture").css("display", "");
                 $("#report").show();
+                $("#profile-picture").show();
             }
         })
     }
 
     $("#viewcertificates").click(function (e) {
         e.preventDefault();
-        let typeofcertificate = "none";
-        try {
-            if (userinfo.easy_points == 3000) {
-                typeofcertificate = "easy";
-            }
+        $(".Menu-option").css("display", "none");
+        $("button").css("display", "none");
+        $("#change-picture").css("display", "none");
+        $("#report").hide();
+        $("#profile-picture").hide();
+        $("#wait-certificates").css('display', 'block');
+        localStorage.removeItem('user1');
+        settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://learnpythonatnp-b99e.restdb.io/rest/student",
+            "method": "GET",
+            "headers": {
+                "content-type": "application/json",
+                "x-apikey": APIKEY,
+                "cache-control": "no-cache"
+            },
         }
-        catch {}
-        try {
-            if (userinfo.standard_points == 25000) {
-                typeofcertificate = "standard";
-            }
-        }
-        catch {}
-        try {
-            if (userinfo.easy_points == 3000) {
-                try {
-                    if (userinfo.standard_points == 25000) {
-                        typeofcertificate = "both";
-                    }
+        $.ajax(settings).done(function (response) {
+            for (let i = 0; i < response.length; i++) {                  
+                if (response[i].username == username) {
+                    userinfo = response[i];
+                    localStorage.setItem('user1', JSON.stringify(userinfo));
+                    break;
                 }
-                catch {}
             }
-        }
-        catch {}
-        if (typeofcertificate == "none") {
-            Swal.fire({
-                title: 'Oops!',
-                text: 'It seems like you do not have any certificates currently. Have a go at Speed Training and if you get maximum points, a certificate will be presented! Do note however, if your next attempt is not maximum points, your certificate will be voided.',
-                icon: 'info',
-            })
-        }
-        else if (typeofcertificate == "easy") {
-            showeasycertificate();
-        }
-        else if (typeofcertificate == "standard") {
-            showstandardcertificate();
-        }
-        else if (typeofcertificate == "both") {
-            showallcertificate(0);
-        }
+            let typeofcertificate = "none";
+            try {
+                if (userinfo.easy_points == 3000) {
+                    typeofcertificate = "easy";
+                }
+            }
+            catch {}
+            try {
+                if (userinfo.standard_points == 25000) {
+                    typeofcertificate = "standard";
+                }
+            }
+            catch {}
+            try {
+                if (userinfo.easy_points == 3000) {
+                    try {
+                        if (userinfo.standard_points == 25000) {
+                            typeofcertificate = "both";
+                        }
+                    }
+                    catch {}
+                }
+            }
+            catch {}
+            $(".Menu-option").css("display", "");
+            $("button").css("display", "");
+            $("#change-picture").css("display", "");
+            $("#report").show();
+            $("#profile-picture").show();
+            $("#wait-certificates").css('display', 'none');
+            if (typeofcertificate == "none") {
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'It seems like you do not have any certificates currently. Have a go at Speed Training and if you get maximum points, a certificate will be presented! Do note however, if your next attempt is not maximum points, your certificate will be voided.',
+                    icon: 'info',
+                })
+            }
+            else if (typeofcertificate == "easy") {
+                showeasycertificate();
+            }
+            else if (typeofcertificate == "standard") {
+                showstandardcertificate();
+            }
+            else if (typeofcertificate == "both") {
+                showallcertificate(0);
+            }
+        });
     })
     
     function showeasycertificate() {
@@ -301,5 +336,4 @@ $(document).ready(function () {
             })
         }
     }
-
 });

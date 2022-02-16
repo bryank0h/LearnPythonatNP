@@ -13,6 +13,7 @@
     </head>   
     <body>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             if (localStorage.getItem('user1') == null) {
@@ -56,8 +57,10 @@
         </section>
         <button id="viewcertificates">Download Certificates</button>
         <a id="report" href="report.html">Report a Problem</a><br><br>
+        <div id="wait-certificates" style="display: none; margin-top: -130px;">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368); position: relative; left: 20px;"  loop  autoplay></lottie-player>
+        </div>
         <p>If you are a mobile user, consider using landscape mode.<br><br>
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_qo9qo8oq.json" speed="0.5" style="width: 100px; height: 100px; border: 3px solid black; border-radius: 100%; background-color: rgba(255, 255, 255, 0.5);"  loop  autoplay></lottie-player>
         </p>
         <div id="fullmarkscertificate-easy" style="display: none;"></div>

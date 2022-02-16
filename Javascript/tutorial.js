@@ -43,6 +43,8 @@ $(document).ready(function () {
     }
     catch (error) {}
 
+    $(".progress > div").css("width", `${(completionlist.length / 4) * 100}%`)
+
     if (completionlist.length == 4) {
         $("#100percent").show();
     }
@@ -242,6 +244,7 @@ $(document).ready(function () {
     $("#resetcompletion").click(function(e) {
         e.preventDefault();
         $("#100percent").hide();
+        $(".progress").hide();
         $("nav").hide();
         $("#resetting-message").show();
         let jsondata = {"username": userinfo.username,

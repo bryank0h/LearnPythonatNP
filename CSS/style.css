@@ -1403,7 +1403,7 @@ h2, h3, h4 {
     transition: .165s ease-in; 
 }
 
-.Report > body h2 {
+.Report > body > h2 {
     margin-left: 40px;
 }
 
@@ -1496,4 +1496,21 @@ h2, h3, h4 {
 /* Shadow effects for some boxes */
 .shadow {
     box-shadow: 1px 1px 7px rgb(88, 88, 88);
+}
+
+.progress {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    height: 12px;
+    border-radius: 6px;
+    background-color: #9bdfff;
+}
+
+.progress > div {
+    height: 100%;
+    border-radius: 6px;
+    background-color: #25baff;
+    transition: width 200ms;
 }
