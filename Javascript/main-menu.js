@@ -1,7 +1,8 @@
 $(document).ready(function () {
     const APIKEY = "61feb0fc6a79155501021811"
     let userinfo = JSON.parse(localStorage.getItem('user1'));
-    $("#username").text(userinfo.username);
+    let username = userinfo.username;
+    $("#username").text(username);
     if (userinfo.profilepicture != "0") {
         $("#profile-picture").attr('src', userinfo.profilepicture);
     }
@@ -44,7 +45,7 @@ $(document).ready(function () {
             if (answer.isConfirmed) {
                 $("#changing-message").show();
                 let jsondata = {
-                    "username": userinfo.username,
+                    "username": username,
                     "email": userinfo.email,
                     "password": userinfo.password,
                     "profilepicture": String(url)
@@ -81,7 +82,7 @@ $(document).ready(function () {
                     $.ajax(settings1).done(function (response1) {
                         console.log(response1);
                         for (let i = 0; i < response1.length; i++) {
-                            if (response1[i].username == userinfo.username) {
+                            if (response1[i].username == username) {
                                 localStorage.setItem('user1', JSON.stringify(response1[i]));
                             }
                         }
@@ -113,4 +114,192 @@ $(document).ready(function () {
             }
         })
     }
+
+    $("#viewcertificates").click(function (e) {
+        e.preventDefault();
+        let typeofcertificate = "none";
+        try {
+            if (userinfo.easy_points == 3000) {
+                typeofcertificate = "easy";
+            }
+        }
+        catch {}
+        try {
+            if (userinfo.standard_points == 25000) {
+                typeofcertificate = "standard";
+            }
+        }
+        catch {}
+        try {
+            if (userinfo.easy_points == 3000) {
+                try {
+                    if (userinfo.standard_points == 25000) {
+                        typeofcertificate = "both";
+                    }
+                }
+                catch {}
+            }
+        }
+        catch {}
+        if (typeofcertificate == "none") {
+            Swal.fire({
+                title: 'Oops!',
+                text: 'It seems like you do not have any certificates currently. Have a go at Speed Training and if you get maximum points, a certificate will be presented! Do note however, if your next attempt is not maximum points, your certificate will be voided.',
+                icon: 'info',
+            })
+        }
+        else if (typeofcertificate == "easy") {
+            showeasycertificate();
+        }
+        else if (typeofcertificate == "standard") {
+            showstandardcertificate();
+        }
+        else if (typeofcertificate == "both") {
+            showallcertificate(0);
+        }
+    })
+    
+    function showeasycertificate() {
+        $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas>')
+        let canvas = document.getElementById('easy-canvas');
+        let ctx = canvas.getContext('2d');
+        let image = new Image();
+        image.src = 'Images/Speed Training/Easy Mode Champion.png';
+        image.onload = function () {
+            drawImage();
+        }
+        textWidth = ctx.measureText(username).width;
+        function drawImage() {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.font = '50px Maven Pro';
+            ctx.fillStyle = '#FFFFFF';
+            ctx.textAlign = 'center';
+            ctx.fillText(username, canvas.width/2, 360);
+        }
+        Swal.fire({
+            title: "Easy Mode Champion Certificate",
+            icon: "success",
+            showDenyButton: true,
+            confirmButtonText: 'Download',
+            denyButtonText: 'Leave'    
+        }).then((answer) => {
+            if (answer.isConfirmed) {
+                let link = document.getElementById('downloadeasy');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'EMC Certificate - ' + username;
+                link.click();
+            }
+        })
+    }
+
+    function showstandardcertificate() {
+        $("#fullmarkscertificate-standard").html('<br><canvas id="standard-canvas" height="600px" width="800px"></canvas>')
+        let canvas = document.getElementById('standard-canvas');
+        let ctx = canvas.getContext('2d');
+        let image = new Image();
+        image.src = 'Images/Speed Training/Standard Mode Champion.png';
+        image.onload = function () {
+            drawImage();
+        }
+        textWidth = ctx.measureText(username).width;
+        function drawImage() {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.font = '50px Maven Pro';
+            ctx.fillStyle = '#29e';
+            ctx.textAlign = 'center';
+            ctx.fillText(username, canvas.width/2, 360);
+        }
+        Swal.fire({
+            title: "Standard Mode Champion Certificate",
+            icon: "success",
+            showDenyButton: true,
+            confirmButtonText: 'Download',
+            denyButtonText: 'Leave'    
+        }).then((answer) => {
+            if (answer.isConfirmed) {
+                let link = document.getElementById('downloadstandard');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'SMC Certificate - ' + username;
+                link.click();
+            }
+        })
+    }
+
+    function showallcertificate(n) {
+        if (n == 0) {
+            $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas>')
+            let canvas = document.getElementById('easy-canvas');
+            let ctx = canvas.getContext('2d');
+            let image = new Image();
+            image.src = 'Images/Speed Training/Easy Mode Champion.png';
+            image.onload = function () {
+                drawImage();
+            }
+            textWidth = ctx.measureText(username).width;
+            function drawImage() {
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                ctx.font = '50px Maven Pro';
+                ctx.fillStyle = '#FFFFFF';
+                ctx.textAlign = 'center';
+                ctx.fillText(username, canvas.width/2, 360);
+            }
+            Swal.fire({
+                title: "Easy Mode Champion Certificate",
+                icon: "success",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Download',
+                denyButtonText: 'Leave',
+                cancelButtonText: 'Next'    
+            }).then((answer) => {
+                if (answer.isConfirmed) {
+                    let link = document.getElementById('downloadeasy');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'EMC Certificate - ' + username;
+                    link.click();
+                }
+                else if (answer.dismiss === Swal.DismissReason.cancel) {
+                    showallcertificate(1);
+                }
+            })
+        }
+        else {
+            $("#fullmarkscertificate-standard").html('<br><canvas id="standard-canvas" height="600px" width="800px"></canvas>')
+            let canvas = document.getElementById('standard-canvas');
+            let ctx = canvas.getContext('2d');
+            let image = new Image();
+            image.src = 'Images/Speed Training/Standard Mode Champion.png';
+            image.onload = function () {
+                drawImage();
+            }
+            textWidth = ctx.measureText(username).width;
+            function drawImage() {
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                ctx.font = '50px Maven Pro';
+                ctx.fillStyle = '#29e';
+                ctx.textAlign = 'center';
+                ctx.fillText(username, canvas.width/2, 360);
+            }
+            Swal.fire({
+                title: "Standard Mode Champion Certificate",
+                icon: "success",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Download',
+                denyButtonText: 'Leave', 
+                cancelButtonText: 'Next'    
+            }).then((answer) => {
+                if (answer.isConfirmed) {
+                    let link = document.getElementById('downloadstandard');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'SMC Certificate - ' + username;
+                    link.click();
+                }
+                else if (answer.dismiss === Swal.DismissReason.cancel) {
+                    showallcertificate(0);
+                }
+            })
+        }
+    }
+
 });

@@ -54,11 +54,16 @@
             </section>
             <p id="changing-message" style="display:none;text-align:center;color:black;">Changing profile picture... Please wait...</p>
         </section>
+        <button id="viewcertificates">Download Certificates</button>
         <a id="report" href="report.html">Report a Problem</a><br><br>
         <p>If you are a mobile user, consider using landscape mode.<br><br>
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_qo9qo8oq.json" speed="0.5" style="width: 100px; height: 100px; border: 3px solid black; border-radius: 100%; background-color: rgba(255, 255, 255, 0.5);"  loop  autoplay></lottie-player>
         </p>
+        <div id="fullmarkscertificate-easy" style="display: none;"></div>
+        <a id="downloadeasy" style="display: none;"></a>
+        <div id="fullmarkscertificate-standard" style="display: none;"></div>
+        <a id="downloadstandard" style="display: none;"></a>
         <script>
             function logout() {
                 localStorage.removeItem('user1');
@@ -71,6 +76,7 @@
                 }) 
             }
         </script>
+        <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
         <script src="Javascript/main-menu.js" async></script>
     </body>
 </html>
