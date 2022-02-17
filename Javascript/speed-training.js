@@ -1,20 +1,25 @@
 $(document).ready(function () {
+    // Get user information from local storage
     let userinfo = JSON.parse(localStorage.getItem('user1'));
     let username = userinfo.username;
+    // API key
     const APIKEY = "61feb0fc6a79155501021811"
+    // Variable to check if the user is in a training session
     let quizstart = false;
 
-    // Leaderboard
+    // When easy leaderboard is selected
     $("#easyleaderboard").click(function(e) {
         $("#standard-table").hide();
         $("#easy-table").show();
     })
 
+    // When standard leaderboard is selected
     $("#standardleaderboard").click(function(e) {
         $("#easy-table").hide();
         $("#standard-table").show();
     })
 
+    // When leaderboard button is clicked, display leaderboard section.
     $("#leaderboard-button").click(function(e){
         let settings;
         if ($(this).text() == "Leaderboard"){
@@ -23,6 +28,7 @@ $(document).ready(function () {
             $("#leaderboard").show();
             $("#leaderboard-button").text("Back");
             $("#leaderboard-button").attr("class", "back");
+            // GET all users' data from database
             settings = {
                 "async": true,
                 "crossDomain": true,
@@ -48,6 +54,7 @@ $(document).ready(function () {
             $("#leaderboard-button").text("Leaderboard");
         }
         
+        // When GET is completed
         $.ajax(settings).done(function (response) {  
             console.log(response);
             $("#leaderboard-wait").css("display", "none");
@@ -55,6 +62,8 @@ $(document).ready(function () {
             let userlist = [];
             let points;
             let timing;
+            // Easy mode
+            // Store users who have completed easy mode into the userlist
             for (let i = 0; i < response.length; i++) {
                 if (response[i].easy_points != null) {
                     userlist.push(response[i]);
@@ -63,6 +72,7 @@ $(document).ready(function () {
                     continue;
                 }
             }
+            // Sort userlist by points earned, followed by timing
             if (userlist.length > 1) {
                 userlist.sort(function(a, b) {
                     let pointdifference = b.easy_points - a.easy_points;
@@ -93,12 +103,16 @@ $(document).ready(function () {
                 <td>${points}</td>
                 <td>${timing}</td>`
             }
+            // Insert table information
             $("#easy-table > table tbody").html(content);
 
+            // Reset variables
             content = "";
             userlist = [];
             points = "";
             timing = "";
+            // Standard mode
+            // Store users who have completed standard mode into userlist
             for (let i = 0; i < response.length; i++) {
                 if (response[i].standard_points != null) {
                     userlist.push(response[i]);
@@ -107,6 +121,7 @@ $(document).ready(function () {
                     continue;
                 }
             }
+            // Sort userlist by points earned, followed by timing
             if (userlist.length > 1) {
                 userlist.sort(function(a, b) {
                     let pointdifference = b.standard_points - a.standard_points;
@@ -137,6 +152,7 @@ $(document).ready(function () {
                 <td>${points}</td>
                 <td>${timing}</td>`
             }
+            // Insert table information
             $("#standard-table > table tbody").html(content);
         })
     })
@@ -555,6 +571,8 @@ $(document).ready(function () {
             createEasyCertificate();
         }
     }
+
+    // Uses canvas to produce easy certificate.
     function createEasyCertificate() {
         $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas><br><a id="easy-download-btn"><u>Download</u></a>')
         let canvas = document.getElementById('easy-canvas');
@@ -870,6 +888,7 @@ $(document).ready(function () {
         }
     }
     
+    // Uses canvas to produce standard certificate.
     function createStandardCertificate() {
         $("#fullmarkscertificate-standard").html('<br><canvas id="standard-canvas" height="600px" width="800px"></canvas><br><a id="standard-download-btn"><u>Download</u></a>')
         let canvas = document.getElementById('standard-canvas');
@@ -894,6 +913,7 @@ $(document).ready(function () {
         })
     } 
 
+    // Check if user is in another browser tab or application while attempting a training session.
     setInterval(checkfocus, 200);
     function checkfocus() {
         if (!(document.hasFocus())) {

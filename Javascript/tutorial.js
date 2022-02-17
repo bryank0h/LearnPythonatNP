@@ -1,7 +1,12 @@
 $(document).ready(function () {
+    // API key
     const APIKEY = "61feb0fc6a79155501021811"
+    // Get user information from local storage
     let userinfo = JSON.parse(localStorage.getItem('user1'));
+    // List to check completed chapters. Used for progress bar and 100% completion trophy.
     let completionlist = [];
+
+    // Mark completed chapters with green background.
     try {
         if (userinfo.chapter1 != null) {
             if (userinfo.chapter1 == "1") {
@@ -43,12 +48,15 @@ $(document).ready(function () {
     }
     catch (error) {}
 
+    // Update progress bar based on number of chapters completed
     $(".progress > div").css("width", `${(completionlist.length / 4) * 100}%`)
 
+    // If all chapters are completed, show trophy.
     if (completionlist.length == 4) {
         $("#100percent").show();
     }
 
+    // Chapter selection actions
     $("#lesson1").click(function (e) {
         e.preventDefault();
         $("header").slideUp("normal", function() {
@@ -83,6 +91,7 @@ $(document).ready(function () {
         });
     })
 
+    // Mini questions
     $("#chapter1-question1-submit").click(function (e) {
         e.preventDefault();
         let answer = $("#chapter1-question1").val();
@@ -123,6 +132,7 @@ $(document).ready(function () {
         }    
     })
 
+    // After marking a chapter as complete
     $("#chapter1complete").click(function(e) {
         e.preventDefault();
         $("button").hide();
@@ -241,6 +251,8 @@ $(document).ready(function () {
             reloadpage()
         });
     })
+
+    // If Reset Completion is clicked
     $("#resetcompletion").click(function(e) {
         e.preventDefault();
         $("#100percent").hide();
@@ -281,6 +293,8 @@ $(document).ready(function () {
             reloadpage();
         });
     })
+
+    // Reload page when chapter is marked complete or reset completion.
     function reloadpage() {
         localStorage.removeItem('user1');
         let settings = {

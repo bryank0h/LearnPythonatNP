@@ -1,8 +1,10 @@
 $(document).ready(function() {
     let userinfo = JSON.parse(localStorage.getItem('user1'));
+    // Auto fill in user's username and email
     $("#username").text(userinfo.username);
     $("#email").text(userinfo.email);
 
+    // Focus events
     $("textarea").focus(function (e) {
         $(this).css("background-color", "white");       
     })  
@@ -15,6 +17,7 @@ $(document).ready(function() {
         }
     })
 
+    // After clicking submit, thank you popup is displayed
     $("#submit").click(function (e) {
         e.preventDefault();
         if ($("form")[0].checkValidity()) {

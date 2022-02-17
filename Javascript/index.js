@@ -1,6 +1,8 @@
-$(document).ready(function() {   
+$(document).ready(function() {  
+    // API key 
     const APIKEY = "61feb0fc6a79155501021811"
 
+    // Transition actions for login
     $("#Login-form h2").click(function(e) {
         if ($("#Login-form h2").css("margin-bottom") == "60px") {
             $("#Login-form").css("margin-bottom", "100px");
@@ -17,6 +19,7 @@ $(document).ready(function() {
         }
     }); 
 
+    // Focus events
     $("input").focus(function (e) {
         $(this).css("background-color", "white");  
         $("#submit").css("background-color", "rgb(69, 69, 69)");     
@@ -31,6 +34,7 @@ $(document).ready(function() {
         }
     }) 
     
+    // After clicking submit, get users' data
     $("#submit").click(function (e) {
         if ($("form")[0].checkValidity()) {
             e.preventDefault();
@@ -54,6 +58,7 @@ $(document).ready(function() {
                 }
             }
               
+            // Check account details
             $.ajax(settings).done(function (response) {
                 successflag = false;
                 for (let i = 0; i < response.length; i++) {                  
@@ -75,6 +80,8 @@ $(document).ready(function() {
             });
         }
     })
+
+    // Go to GitHub repository
     $("#attribution").click(function(e) {
         e.preventDefault();
         window.open('https://github.com/bryank0h/LearnPythonatNP', '_blank');

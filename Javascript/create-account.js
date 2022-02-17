@@ -1,6 +1,8 @@
 $(document).ready(function () {
+    // API key
     const APIKEY = "61feb0fc6a79155501021811"
 
+    // Focus events
     $("input").focus(function (e) {
         $(this).css("background-color", "white");       
     })  
@@ -39,6 +41,7 @@ $(document).ready(function () {
         $("#submit").css("background-color", "rgb(69, 69, 69)");
     })
 
+    // After clicking submit, get all users' data first using GET
     $("#submit").click(function (e) {
         if ($("form")[0].checkValidity()) {
             e.preventDefault(); 
@@ -61,6 +64,7 @@ $(document).ready(function () {
                     $("#submit").prop("disabled", true)
                 }
             }
+            // After getting data, check if username or email already exists
             $.ajax(settings).done(function (response) {
                 catchflag = false;
                 for (let i = 0; i < response.length; i++) {                  
@@ -77,6 +81,7 @@ $(document).ready(function () {
                         break;
                     }
                 }
+                // If username and email is unique/new, creates account
                 if (!(catchflag)) {
                     createAccount(username, email, password);
                 }
@@ -87,6 +92,8 @@ $(document).ready(function () {
             });    
         }
     })
+
+    // POST new account
     function createAccount(username, email, password) {
         let jsondata = {
             "username": username,
@@ -120,7 +127,7 @@ $(document).ready(function () {
             console.log(response);
             localStorage.setItem('user1', JSON.stringify(response));
             $("lottie-player").hide(); 
-            window.location.assign("main-menu.html");           
+            window.location.assign("main-menu.html");   // User is redirected to main menu page        
         })
     }
 })

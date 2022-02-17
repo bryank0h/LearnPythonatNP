@@ -1,14 +1,21 @@
 $(document).ready(function () {
+    // API key
     const APIKEY = "61feb0fc6a79155501021811"
+
+    // Store user information in local storage.
     let userinfo = JSON.parse(localStorage.getItem('user1'));
     let username = userinfo.username;
+
+    // Display user's username and profile picture
     $("#username").text(username);
     if (userinfo.profilepicture != "0") {
         $("#profile-picture").attr('src', userinfo.profilepicture);
     }
 
+    // Change profile picture
     $("#change-picture, #profile-picture").click(function (e) {
         e.preventDefault(); 
+        // Randomize image collections
         let topics = ["food", "fruit", "fruits", "city", "plant", "animal", "animals", "cyberpunk", "ikea", "Nintendo", "coffee", "skyscraper"]
         let randompicnumber = Math.floor(Math.random() * topics.length);
         console.log(randompicnumber);
@@ -22,6 +29,7 @@ $(document).ready(function () {
         })       
     })
 
+    // Change profile picture popup
     function PhotoChange(photos, number) {
         $(".Menu-option").css("display", "none");
         $("button").css("display", "none");
@@ -30,6 +38,7 @@ $(document).ready(function () {
         $("#profile-picture").hide();
         url = photos[number].urls.small;
         console.log(url);
+        // Popup
         Swal.fire({
             title: "Change Profile Picture",
             text: "Select a random profile picture",
@@ -43,6 +52,7 @@ $(document).ready(function () {
             cancelButtonText: 'Next',
             denyButtonText: 'Leave'         
         }).then((answer) => {
+            // If user saves profile picture, PUT new profile picture in database
             if (answer.isConfirmed) {
                 $("#changing-message").show();
                 let jsondata = {
@@ -88,6 +98,7 @@ $(document).ready(function () {
                             }
                         }
                     })
+                    // After profile picture is changed, user is prompted to wait so that local storage is updated with new profile picture
                     Swal.fire({
                         title: 'Your profile picture has been changed!',
                         text: 'The page will reload. Please wait so that the changes are reflected. If changes are not reflected, re-login again and the profile picture will be updated.',
@@ -106,7 +117,7 @@ $(document).ready(function () {
                 } else {
                     number += 1;
                 }
-                PhotoChange(photos, number);
+                PhotoChange(photos, number); // Go to next image
             } else {
                 $(".Menu-option").css("display", "");
                 $("button").css("display", "");
@@ -117,6 +128,7 @@ $(document).ready(function () {
         })
     }
 
+    // After clicking on Download Certificates, GET data from database. Since user may have just completed a training session, local storage is not updated with new info. Hence this is a way to update new info.
     $("#viewcertificates").click(function (e) {
         e.preventDefault();
         $(".Menu-option").css("display", "none");
@@ -141,10 +153,11 @@ $(document).ready(function () {
             for (let i = 0; i < response.length; i++) {                  
                 if (response[i].username == username) {
                     userinfo = response[i];
-                    localStorage.setItem('user1', JSON.stringify(userinfo));
+                    localStorage.setItem('user1', JSON.stringify(userinfo)); // Update local storage
                     break;
                 }
             }
+            // Check certificates obtained
             let typeofcertificate = "none";
             try {
                 if (userinfo.easy_points == 3000) {
@@ -194,6 +207,7 @@ $(document).ready(function () {
         });
     })
     
+    // If only easy certificate is obtained.
     function showeasycertificate() {
         $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas>')
         let canvas = document.getElementById('easy-canvas');
@@ -228,6 +242,7 @@ $(document).ready(function () {
         })
     }
 
+    // If only standard certificate is obtained
     function showstandardcertificate() {
         $("#fullmarkscertificate-standard").html('<br><canvas id="standard-canvas" height="600px" width="800px"></canvas>')
         let canvas = document.getElementById('standard-canvas');
@@ -262,6 +277,7 @@ $(document).ready(function () {
         })
     }
 
+    // If all certificates are obtained.
     function showallcertificate(n) {
         if (n == 0) {
             $("#fullmarkscertificate-easy").html('<br><canvas id="easy-canvas" height="600px" width="800px"></canvas>')
