@@ -223,6 +223,7 @@ $(document).ready(function () {
                 link.href = canvas.toDataURL('image/png');
                 link.download = 'EMC Certificate - ' + username;
                 link.click();
+                showeasycertificate();
             }
         })
     }
@@ -256,6 +257,7 @@ $(document).ready(function () {
                 link.href = canvas.toDataURL('image/png');
                 link.download = 'SMC Certificate - ' + username;
                 link.click();
+                showstandardcertificate();
             }
         })
     }
@@ -292,6 +294,7 @@ $(document).ready(function () {
                     link.href = canvas.toDataURL('image/png');
                     link.download = 'EMC Certificate - ' + username;
                     link.click();
+                    showallcertificate(0);
                 }
                 else if (answer.dismiss === Swal.DismissReason.cancel) {
                     showallcertificate(1);
@@ -329,6 +332,7 @@ $(document).ready(function () {
                     link.href = canvas.toDataURL('image/png');
                     link.download = 'SMC Certificate - ' + username;
                     link.click();
+                    showallcertificate(1);
                 }
                 else if (answer.dismiss === Swal.DismissReason.cancel) {
                     showallcertificate(0);
