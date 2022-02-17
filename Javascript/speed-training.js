@@ -400,6 +400,10 @@ $(document).ready(function () {
                     $(".second").css("color", "black");
                     $(".easyoption").removeAttr("style");
                     timetakenlist.push(easysec);
+                    if (parseInt($("#easypoints").text()) > 3000)
+                    {
+                        $("#easypoints").text("0000");
+                    }
                     if (i != 9) {
                         i++;
                         easyquiz(i)
@@ -444,7 +448,7 @@ $(document).ready(function () {
                     else {
                         if (updatedpoints > 3000)
                         {
-                            $("#easypoints").text("3000");
+                            $("#easypoints").text("0000");
                         }
                         else {
                             $("#easypoints").text(newpoints);
@@ -476,6 +480,10 @@ $(document).ready(function () {
                     icon: 'error'
                 }).then(function () {
                     timetakenlist.push(timetaken);
+                    if (parseInt($("#easypoints").text()) > 3000)
+                    {
+                        $("#easypoints").text("0000");
+                    }
                     $(".easyoption").removeAttr("style");
                     if (i != 9) {
                         i++;
@@ -701,6 +709,10 @@ $(document).ready(function () {
                     $(".minute").css("color", "black");
                     $(".second").css("color", "black");
                     timetakenlist.push(standardmin * 60 + standardsec);
+                    if (parseInt($("#standardpoints").text()) > 25000)
+                    {
+                        $("#standardpoints").text("00000");
+                    }
                     if (i != 9) {
                         i++;
                         standardquiz(i)
@@ -751,7 +763,7 @@ $(document).ready(function () {
                     else {
                         if (updatedpoints > 25000)
                         {
-                            $("#standardpoints").text("25000");
+                            $("#standardpoints").text("00000");
                         }
                         else {
                             $("#standardpoints").text(newpoints);
@@ -779,6 +791,10 @@ $(document).ready(function () {
                     icon: 'error'
                 }).then(function () {
                     timetakenlist.push(timetaken);
+                    if (parseInt($("#standardpoints").text()) > 25000)
+                    {
+                        $("#standardpoints").text("00000");
+                    }
                     if (i != 9) {
                         i++;
                         standardquiz(i)
