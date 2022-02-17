@@ -241,6 +241,7 @@ Used to store important data of users.
 - Image on "Report a Problem" page obtained from https://www.ac-illust.com/main/detail.php?id=22420214&word=%E7%8C%AB%E3%80%80%E5%95%8F%E9%A1%8C%E3%81%AA%E3%81%97&searchId=3053327208
 - Easy Mode Certificate template obtained from https://templates.office.com/en-sg/wave-border-employee-excellence-award-tm03460503
 - Standard Mode Certificate template obtained from https://templates.office.com/en-sg/confetti-thank-you-certificate-tm03444065
+- Favicon images obtained from https://remixicon.com/
 
 ### Fonts
 - *Maven Pro* and *Open Sans* obtained at https://fonts.google.com/
