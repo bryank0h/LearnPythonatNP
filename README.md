@@ -216,6 +216,18 @@ Used to store important data of users.
    3. Select a difficulty.
    4. Ensure that a popup appears indicating that the page has to reload as a session has been completed previously.
 
+**27. Cheating, Part 1**
+   1. In Speed Training mode, select any difficulty and begin.
+   2. Go into Inspect Element and change the points to above the maximum points.
+   3. Answer the question in any way. (Correct, Wrong, Times Up)
+   4. Ensure that in the next question, the points has been reset to 0000 or 00000.
+
+**28. Cheating, Part 2**
+   1. In Speed Training mode, select any difficulty and begin.
+   2. Go into another browser tab or open other applications.
+   3. Ensure that a popup appears on the quiz indicating that another browser tab or application is opened.
+   4. The page will reload.
+
 **Other validations**
 - Ensure that there are no broken links, and all external links are opened on a new tab.
   

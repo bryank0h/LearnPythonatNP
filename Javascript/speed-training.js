@@ -2,6 +2,7 @@ $(document).ready(function () {
     let userinfo = JSON.parse(localStorage.getItem('user1'));
     let username = userinfo.username;
     const APIKEY = "61feb0fc6a79155501021811"
+    let quizstart = false;
 
     // Leaderboard
     $("#easyleaderboard").click(function(e) {
@@ -227,6 +228,7 @@ $(document).ready(function () {
     $(".return").click(function(e) {
         pause();
         reset();
+        quizstart = false;
         $(".minute").text('00');
         $(".second").text('00');
         $("#easy").data("timesup", "false");
@@ -338,6 +340,7 @@ $(document).ready(function () {
     let timetakenlist = []; 
     $("#begin-easy").click(function (e) {
         $("#easy-instructions").slideUp("normal");
+        quizstart = true;
         while(true) {
             number = Math.floor(Math.random() * easyquestions.length);
             repeatedflag = false;
@@ -409,6 +412,7 @@ $(document).ready(function () {
                         easyquiz(i)
                     }
                     else {
+                        quizstart = false;
                         easyresults();
                     }
                 })
@@ -460,6 +464,7 @@ $(document).ready(function () {
                         easyquiz(i)
                     }
                     else{
+                        quizstart = false;
                         easyresults();
                     }  
                 })
@@ -490,6 +495,7 @@ $(document).ready(function () {
                         easyquiz(i)
                     }      
                     else {
+                        quizstart = false;
                         easyresults();
                     }    
                 })
@@ -629,6 +635,7 @@ $(document).ready(function () {
 
     $("#begin-standard").click(function (e) {
         $("#standard-instructions").slideUp("normal");
+        quizstart = true;
         while(true) {
             number = Math.floor(Math.random() * standardquestions.length);
             repeatedflag = false;
@@ -718,6 +725,7 @@ $(document).ready(function () {
                         standardquiz(i)
                     }
                     else {
+                        quizstart = false;
                         standardresults();
                     }
                 })
@@ -775,6 +783,7 @@ $(document).ready(function () {
                         standardquiz(i)
                     }
                     else{
+                        quizstart = false;
                         standardresults();
                     }  
                 })
@@ -800,6 +809,7 @@ $(document).ready(function () {
                         standardquiz(i)
                     }      
                     else {
+                        quizstart = false;
                         standardresults();
                     }    
                 })
@@ -883,4 +893,20 @@ $(document).ready(function () {
             downloadBtn.download = 'SMC Certificate - ' + username;
         })
     } 
+
+    setInterval(checkfocus, 200);
+    function checkfocus() {
+        if (!(document.hasFocus())) {
+            if (quizstart == true) {
+                Swal.fire(
+                    'Hmmm 🤔',
+                    'It seems like you are opening another browser tab or some other application. Hopefully you are not cheating!',
+                    'question'
+                ).then(function () {
+                    window.location.reload();
+                })
+            }
+        }
+    }
+
 })
