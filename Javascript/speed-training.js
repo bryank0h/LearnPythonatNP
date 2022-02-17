@@ -442,7 +442,13 @@ $(document).ready(function () {
                         $("#easypoints").text(stringofzeros + newpoints);
                     }
                     else {
-                        $("#easypoints").text(newpoints);
+                        if (updatedpoints > 3000)
+                        {
+                            $("#easypoints").text("3000");
+                        }
+                        else {
+                            $("#easypoints").text(newpoints);
+                        }   
                     }
                     timetakenlist.push(timetaken);
                     if (i != 9) {
@@ -743,7 +749,13 @@ $(document).ready(function () {
                         $("#standardpoints").text(stringofzeros + newpoints);
                     }
                     else {
-                        $("#standardpoints").text(newpoints);
+                        if (updatedpoints > 25000)
+                        {
+                            $("#standardpoints").text("25000");
+                        }
+                        else {
+                            $("#standardpoints").text(newpoints);
+                        }   
                     }
                     timetakenlist.push(timetaken);
                     if (i != 9) {
