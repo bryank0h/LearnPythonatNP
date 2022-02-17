@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>LearnPythonAtNP</title>
         <meta name="description" content="">
+        <link rel="icon" type="image/x-icon" href="/Images/Icons/home-3-fill.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,7 @@
     <body>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- If user has already logged in, redirect to main menu page -->
         <script>
             if (localStorage.getItem('user1') != null) {
                 Swal.fire(
@@ -26,6 +28,7 @@
             }
         </script>
         <header id="Title">
+            <!-- NP website -->
             <figure>
                 <a href="https://www.np.edu.sg/Pages/default.aspx" target="_blank"><img src="Images/School Logo/NP.png" alt="NP website" title="Go to Ngee Ann Polytechnic's website"></a>
             </figure>            
@@ -33,6 +36,7 @@
             <div></div>          
         </header>            
         <section id="Login-form" style="margin-bottom: 100px;">
+            <!-- Click on this h2 to reveal the login form -->
             <h2 class="shadow">Login to Get Started!</h2>
             <form id="Login" action="" method="post" style="display: none;">
                 <div class="Input-box">
@@ -45,7 +49,9 @@
                     <input type="password" id="password" name="password" required />
                 </div>
                 <br><br>
+                <!-- Error message appears if details do not match the records from database -->
                 <p id="Error" style="display: none;">Invalid credentials. Please try again.</p>
+                <!-- Lottie player plays while the submit button is clicked and the website is interacting with the database -->
                 <div id="submit-wait" style="display: none; justify-content: center;">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368);"  loop  autoplay></lottie-player>
@@ -56,6 +62,7 @@
         </section>
         <section id="Create-account">
             <p>Don't have an account yet? Create one today!</p>
+            <!-- Click here to create account -->
             <a href="create-account.html">Create an Account</a>
             <br><br><br><br><br>
             <p id="attribution" style="font-size:small; cursor: pointer; position: relative; top: 24px;" target="_blank">Website created by <b>Bryan Koh</b> & <b>Lee Wei Jun Nicholas.</b> © 2022 LearnPythonatNP. All Rights Reserved. ID Assignment 2 - 2022</p>

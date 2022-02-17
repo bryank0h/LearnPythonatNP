@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Report a Problem</title>
         <meta name="description" content="">
+        <link rel="icon" type="image/x-icon" href="/Images/Icons/alarm-warning-fill.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,7 @@
     <body>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- If user has not logged in, redirect to homepage -->
         <script>
             if (localStorage.getItem('user1') == null) {
             Swal.fire(
@@ -32,6 +34,7 @@
             <form id="Report" method="post">
                 <p><b>Username:</b> <span id="username"></span></p>
                 <p><b>Email:</b> <span id="email"></span></p>
+                <!-- Textarea to state problem -->
                 <div class="Input-box">
                     <p><b>Please state the problem:</b></p>
                     <textarea id="problem" class="shadow" name="problem" rows="6" cols="50" required></textarea>
@@ -39,6 +42,7 @@
                 <input type="submit" id="submit" value="Report" /><br>
             </form>
         </section>
+        <!-- Contact details -->
         <h2>Contact us:</h2>
         <section id="contactus">
             <div>

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Create an Account</title>
         <meta name="description" content="">
+        <link rel="icon" type="image/x-icon" href="/Images/Icons/menu-line.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="Libraries/normalize.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,7 @@
     <body>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- If user has already logged in, redirect to main menu page -->
         <script>
             if (localStorage.getItem('user1') != null) {
                 Swal.fire(
@@ -25,6 +27,7 @@
                     }) 
             }
         </script>
+        <!-- Go back to homepage-->
         <a href="index.html">Back</a>
         <h1>Create an Account</h1>
         <div></div>
@@ -50,13 +53,18 @@
                     <input type="password" id="re-password" name="re-password" required />
                 </div>
                 <br><br>
+                <!-- Error messages appear when the below errors are detected -->
                 <div id="Error-messages">
+                    <!-- If username has already been taken -->
                     <p id="Username-error" style="display: none;">Username already taken! Please enter another username.</p>
+                    <!-- If email has already been registered -->
                     <p id="Email-error" style="display: none;">This email has already been registered.</p>
+                    <!-- If password does not match re-enter password -->
                     <p id="Password-error" style="display: none;">Password entered does not match! Please try again.</p>
                 </div>
                 <input type="submit" id="submit" value="Create Account and Get Started!" /><br>
             </form>
+            <!-- Lottie player plays while the submit button is clicked and the website is interacting with the database -->
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_raijrjlw.json"  speed="0.65"  style="display: none; width: 100px; height: 100px; border: 1px solid rgb(0, 0, 0); border-radius: 100%; background-color: rgba(255, 255, 255, 0.368);"  loop  autoplay></lottie-player>
         </section>
