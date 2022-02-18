@@ -474,6 +474,7 @@ $(document).ready(function () {
                             $("#easypoints").text(newpoints);
                         }   
                     }
+                    selectedoption = 0;
                     timetakenlist.push(timetaken);
                     if (i != 9) {
                         i++;
@@ -486,11 +487,13 @@ $(document).ready(function () {
                 })
             }
             else if (selectedoption == 0) {
+                selectedoption = 0;
+                start();
                 Swal.fire(
                     'You haven\'t answered the question...',
                     'As a wise shoe company once said: "JUST DO IT". Oh and btw the time is still ticking lol so please answer the question thx.',
                     'question'
-                )
+                )   
             }
             else if (selectedoption != easyanswers[randomquestions[i]]) {
                 pause();
@@ -500,6 +503,7 @@ $(document).ready(function () {
                     text: "Correct Answer: " + $(answer).text(),
                     icon: 'error'
                 }).then(function () {
+                    selectedoption = 0;
                     timetakenlist.push(timetaken);
                     if (parseInt($("#easypoints").text()) > 3000)
                     {
