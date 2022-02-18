@@ -255,4 +255,4 @@ Used to store important data of users.
 ## Video Pitch
 https://user-images.githubusercontent.com/93893634/154657174-2581169b-96ab-4c80-af8d-608fa013a165.mp4
 
-
+Video at Google Drive: https://drive.google.com/drive/folders/14d_J5MKSr5aOHrfspzqqF8hnT1ixCE4i?usp=sharing
