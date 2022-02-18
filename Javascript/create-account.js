@@ -35,6 +35,8 @@ $(document).ready(function () {
     $("input").focus(function (e) {
         $("#Email-error").hide();
         $("#Username-error").hide();
+        $("#Password-error").hide();
+        $("#submit").prop('disabled', false);
     })
 
     $("input").focus(function() {
