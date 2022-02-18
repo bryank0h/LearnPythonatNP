@@ -251,3 +251,6 @@ Used to store important data of users.
 
 ## GitHub Page
 - https://bryank0h.github.io/LearnPythonatNP
+
+## Video Pitch
+- <video width="320" height="240" controls><source src="ID_LearnPythonatNP_pitch.mp4" type="video/mp4">Your browser does not support the video tag.</video>
