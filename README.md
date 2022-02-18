@@ -248,3 +248,6 @@ Used to store important data of users.
 
 ### Fonts
 - *Maven Pro* and *Open Sans* obtained at https://fonts.google.com/
+
+## GitHub Page
+- https://bryank0h.github.io/LearnPythonatNP
