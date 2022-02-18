@@ -47,6 +47,9 @@ Used to design the backgrounds of the website.
 - <a href="https://code.visualstudio.com/">Visual Studio Code</a> -> HTML, CSS & JavaScript <br>
 Used to code the website.
 
+- HTML Web Storage API -> LocalStorage
+Used to store user data locally within the user's browser.
+
 - <a href="https://jquery.com/">jQuery</a> <br>
 Used to simplify HTML document traversal, manipulation, event handling, animation and Ajax.
 
